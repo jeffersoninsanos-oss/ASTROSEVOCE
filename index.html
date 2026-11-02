@@ -169,15 +169,11 @@ main{max-width:1160px;gap:40px;padding-top:44px}
 .downloads{grid-column:1/-1}
 .downloads-cabecalho{max-width:660px;margin:0 auto 24px;text-align:center}
 .downloads-cabecalho p,.download-card p{color:var(--mute)}
-.downloads-grade{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.downloads-grade{display:grid;max-width:660px;margin:0 auto}
 .download-card{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:22px;background:#fff;border:1px solid #E1E2ED;border-radius:16px;box-shadow:0 12px 32px rgba(20,22,58,.07)}
 .download-card h3{margin:0;font:700 1.3rem/1.1 "Bricolage Grotesque",system-ui,sans-serif}
 .download-card p{margin:0}
-.download-card img{display:block;width:100%;max-height:230px;object-fit:cover;object-position:center 25%;border-radius:8px}
 .download-acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:4px}
-.download-secundario{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid #D9DBE8;border-radius:8px;color:var(--ink);font-weight:600;text-decoration:none}
-.download-secundario:hover{background:#F1F1F7}
-.download-secundario:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 #ebookEntrega{margin-top:24px;padding:18px;border-radius:10px;background:#F1F1F7}
 #ebookEntrega p{margin:0 0 12px;color:var(--mute)}
 #ebookEntrega h3{margin:0 0 8px}
@@ -186,7 +182,7 @@ main{max-width:1160px;gap:40px;padding-top:44px}
 .sg:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(20,22,58,.1)}
 .e0{background:#F8E2CD}.e1{background:#E5EBDD}.e2{background:#E0E7F2}.e3{background:#EAE3EF}
 @media(max-width:760px){.universo-galeria{grid-template-columns:1fr}.universo-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center}.universo-texto{padding:18px}.guia-chamada{grid-template-columns:1fr;text-align:center}.guia-capa{max-width:230px}}
-@media(max-width:600px){main{gap:28px;padding:28px 16px 40px}.formulario{padding:24px 18px}.formulario h1{font-size:2rem}.row{grid-template-columns:1fr;gap:14px}#roda{padding:4px}.universo-card{display:block}.universo-texto{padding:18px}.downloads-grade{grid-template-columns:1fr}.download-card{padding:18px}}
+@media(max-width:600px){main{gap:28px;padding:28px 16px 40px}.formulario{padding:24px 18px}.formulario h1{font-size:2rem}.row{grid-template-columns:1fr;gap:14px}#roda{padding:4px}.universo-card{display:block}.universo-texto{padding:18px}.download-card{padding:18px}}
 @media(prefers-reduced-motion:reduce){.universo-card{transition:none}.universo-card:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.card,.sg,#btn{transition:none}.card:hover,.sg:hover,#btn:hover{transform:none}}
 </style>
@@ -373,10 +369,10 @@ main{max-width:1160px;gap:40px;padding-top:44px}
   </svg>
 </section>
 
-<section class="downloads" id="livros" aria-labelledby="downloads-titulo">
+<section class="downloads" id="ebook" aria-labelledby="downloads-titulo">
   <div class="downloads-cabecalho">
-    <h2 id="downloads-titulo">Livros e materiais</h2>
-    <p>Continue explorando o céu ou baixe o livro para colorir.</p>
+    <h2 id="downloads-titulo">E-book de astrologia</h2>
+    <p>Continue explorando os símbolos do seu mapa astral.</p>
   </div>
   <div class="downloads-grade">
     <article class="download-card">
@@ -384,15 +380,6 @@ main{max-width:1160px;gap:40px;padding-top:44px}
       <p>O e-book de astrologia é liberado no resultado do mapa após a confirmação do pagamento.</p>
       <div class="download-acoes">
         <a class="guia-link" href="#form">Fazer meu mapa</a>
-      </div>
-    </article>
-    <article class="download-card">
-      <img src="fazendinha-kdp/arquivos/capa_frente_com_sangria.png" alt="Capa ilustrada do livro Aventuras na Fazendinha" loading="lazy">
-      <h3>Aventuras na Fazendinha</h3>
-      <p>Livro de colorir com 25 bichinhos. Escolha o PDF do livro ou baixe o pacote completo de arquivos.</p>
-      <div class="download-acoes">
-        <a class="guia-link" href="fazendinha-kdp/arquivos/miolo_kdp_50_paginas.pdf" download="aventuras-na-fazendinha.pdf">Baixar livro (PDF) <span aria-hidden="true">↓</span></a>
-        <a class="download-secundario" href="fazendinha-kdp/aventuras-na-fazendinha-arquivos-kdp.zip" download="aventuras-na-fazendinha-arquivos.zip">Arquivos completos (ZIP) <span aria-hidden="true">↓</span></a>
       </div>
     </article>
   </div>
@@ -417,7 +404,7 @@ main{max-width:1160px;gap:40px;padding-top:44px}
       <ul>
         <li><a href="#form">Fazer meu mapa</a></li>
         <li><a href="#como">O que o mapa mostra</a></li>
-        <li><a href="#livros">Livros para baixar</a></li>
+        <li><a href="#ebook">E-book de astrologia</a></li>
         <li><a href="#signos">Os 12 signos</a></li>
         <li><a href="#topo">Voltar ao topo</a></li>
       </ul>
