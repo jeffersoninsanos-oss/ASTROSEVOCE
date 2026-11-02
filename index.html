@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astros e Você | Seu mapa astral por R$ 19,90</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2314163A'/%3E%3Ccircle cx='50' cy='50' r='24' fill='%23F5B93A'/%3E%3C/svg%3E">
+<meta name="description" content="Astros e Você: gere seu mapa astral na hora. Pague R$ 19,90 com Pix e veja Sol, Lua, Ascendente e planetas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Instrument+Sans:wght@400;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#202B35;--blue:#56716A;--gold:#C7A66A;--mist:#E5E2D9;--paper:#F7F6F1;--mute:#68716F}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 "Instrument Sans",system-ui,sans-serif}
+h1,h2{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.05;margin:0}
+h1{font-size:clamp(2.2rem,6vw,3.8rem);letter-spacing:0}
+h2{font-size:1.5rem;margin-bottom:.6rem}
+main{max-width:1040px;margin:0 auto;padding:28px 20px 48px;display:grid;gap:36px;grid-template-columns:1fr;align-items:start}
+@media(min-width:860px){main{grid-template-columns:1fr 1fr;padding-top:56px}}
+.lead{color:var(--mute);max-width:34ch;margin:14px 0 24px}
+form{display:grid;gap:14px}
+label{display:grid;gap:5px;font-weight:600;font-size:.95rem}
+small{font-weight:400;color:var(--mute)}
+input{font:inherit;padding:12px 14px;border:2px solid var(--mist);border-radius:10px;background:#fff;color:var(--ink)}
+input:focus,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-color:var(--ink)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+button{font:inherit;font-weight:600;padding:14px 18px;border:0;border-radius:10px;background:var(--blue);color:#fff;cursor:pointer}
+button.alt{background:var(--ink)}
+button:disabled{opacity:.6;cursor:wait}
+.wheel{width:100%;max-width:460px;margin:0 auto;display:block}
+.panel{background:#fff;border:2px solid var(--mist);border-radius:14px;padding:20px;margin-top:20px}
+.erro{color:#B3123B;font-weight:600;min-height:1.4em}
+#qr{display:flex;justify-content:center;margin:14px 0}
+#codigo{width:100%;font-size:.8rem}
+.demo{background:var(--gold);color:var(--ink);padding:8px 12px;border-radius:8px;font-size:.9rem;font-weight:600;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+td{padding:7px 4px;border-bottom:1px solid var(--mist)}
+td:first-child{font-weight:600}
+.txt p{margin:.7rem 0}
+
+[hidden]{display:none!important}
+.ceu{display:block;width:100%;height:150px}
+.trio{grid-column:1/-1;display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:700px){.trio{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--mist);border-radius:14px;padding:18px;display:flex;gap:14px;align-items:center}
+.card svg{flex:none;width:64px;height:64px}
+.card b{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:1.15rem;display:block}
+.card span{color:var(--mute);font-size:.95rem;line-height:1.35;display:block}
+.ceu{height:clamp(250px,34vw,340px)}
+.topo{position:relative}
+.marca{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 12px}
+.marca .nome{margin:0;font:700 clamp(1.9rem,8.6vw,4.8rem)/1.05 Lora,Georgia,serif;letter-spacing:.05em;color:#fff;text-shadow:0 0 34px rgba(245,185,58,.65),0 5px 0 rgba(20,22,58,.55)}
+.marca .nome span{display:block;margin-top:.14em;font-size:.38em;font-weight:600;letter-spacing:.4em;color:var(--gold);text-shadow:0 0 20px rgba(245,185,58,.5)}
+.marca b{color:var(--gold)}
+.marca .sub{margin:10px 0 0;color:#E9E8F6;letter-spacing:.2em;font-size:clamp(.7rem,2.2vw,1.05rem);text-transform:none}
+.signos{grid-column:1/-1}
+#grade{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));margin-top:14px}
+.sg{border-radius:16px;padding:16px 12px;text-align:center}
+.sg .g{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 8px;border-radius:50%;background:#fff;font-size:32px;line-height:1;color:var(--blue);border:2px solid var(--ink)}
+.sg b{display:block;font-family:"Bricolage Grotesque",system-ui,sans-serif}
+.sg small{display:block}
+.e0{background:#FFD9A8}.e1{background:#D8EBC9}.e2{background:#D4E2FF}.e3{background:#DDD6F7}
+
+/* ===== HERO ANIMADO ===== */
+.hero{--gold:#F5B93A;position:relative;overflow:hidden;min-height:clamp(440px,50vw,620px);background:radial-gradient(120% 100% at 70% 50%,#1B2A8F 0%,#0C1450 45%,#060A24 100%);isolation:isolate}
+.neb{position:absolute;inset:-20%;z-index:-2;background:radial-gradient(40% 30% at 25% 30%,rgba(142,147,255,.35),transparent 70%),radial-gradient(35% 28% at 80% 75%,rgba(232,106,146,.28),transparent 70%),radial-gradient(30% 25% at 60% 20%,rgba(90,60,200,.3),transparent 70%);animation:deriva 40s ease-in-out infinite alternate}
+@keyframes deriva{to{transform:translate3d(-3%,2%,0) scale(1.06)}}
+#cosmos{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:14px;min-height:inherit;padding:48px 0 48px clamp(20px,6vw,88px);max-width:860px}
+.eyebrow{margin:0;color:var(--gold);letter-spacing:.35em;font-size:.74rem;font-weight:600;text-transform:uppercase}
+.hero .nome{margin:0;font:700 clamp(2rem,4.3vw,3.9rem)/1.04 Lora,Georgia,serif;color:#fff;letter-spacing:.03em;text-shadow:0 0 40px rgba(245,185,58,.5),0 4px 0 rgba(6,10,36,.6)}
+.hero .nome b{color:var(--gold)}
+.hero .sub{margin:0;color:#D9E0FF;max-width:32ch;font-size:clamp(1rem,1.6vw,1.2rem)}
+.cta{display:inline-block;margin-top:6px;padding:15px 26px;border-radius:999px;background:linear-gradient(180deg,#FFE08A,#F5B93A);color:#14163A;font-weight:700;text-decoration:none;box-shadow:0 0 0 2px rgba(255,255,255,.5) inset,0 10px 30px rgba(245,185,58,.4);transition:transform .2s,box-shadow .2s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 0 0 2px rgba(255,255,255,.6) inset,0 14px 38px rgba(245,185,58,.55)}
+.hoje{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.hoje span{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:.82rem;backdrop-filter:blur(6px)}
+.rel{position:absolute;right:18px;bottom:12px;z-index:1;font-size:.68rem;letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase}
+@media(max-width:760px){.hero{min-height:580px}.hero-in{align-items:center;text-align:center;justify-content:flex-start;padding:34px 16px 0;margin:0 auto}.hoje{justify-content:center}.rel{left:0;right:0;text-align:center}}
+@media(prefers-reduced-motion:reduce){.neb{animation:none}}
+
+/* ===== RODAPÉ ===== */
+.rodape{position:relative;overflow:hidden;color:#C9D1F5;background:radial-gradient(90% 130% at 85% 0%,#14216F 0%,#0A1240 45%,#050820 100%);margin-top:28px}
+.rodape::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,#F5B93A,transparent);box-shadow:0 0 26px rgba(245,185,58,.65)}
+.rodape::after{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;background-image:radial-gradient(1px 1px at 20px 30px,#fff,transparent),radial-gradient(1.5px 1.5px at 110px 80px,#fff,transparent),radial-gradient(1px 1px at 170px 20px,#fff,transparent),radial-gradient(1px 1px at 60px 110px,#cfd6ff,transparent);background-size:200px 140px}
+.rodape-in,.rodape-fim{position:relative;z-index:1;max-width:1040px;margin:0 auto}
+.rodape-in{padding:56px 20px 30px;display:grid;gap:36px;grid-template-columns:1.5fr 1fr 1.1fr 1.3fr}
+.rodape h3{margin:0 0 14px;font:600 .74rem "Instrument Sans",system-ui,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#F5B93A}
+.rodape p{margin:0 0 10px;font-size:.93rem;line-height:1.6}
+.rodape ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.93rem}
+.rodape a{color:#C9D1F5;text-decoration:none;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.rodape a:hover,.rodape a:focus-visible{color:#fff;border-color:#F5B93A}
+.rod-marca{display:flex;align-items:center;gap:12px;margin-bottom:14px;font:700 1.45rem/1.1 Lora,Georgia,serif;color:#fff;letter-spacing:.03em}
+.rod-marca b{color:#F5B93A}
+.selos{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.selos span{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);font-size:.8rem;color:#fff}
+.rodape-fim{padding:18px 20px 30px;border-top:1px solid rgba(255,255,255,.13);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:.86rem;color:#9AA5D9}
+.rodape-fim strong{color:#fff;font-weight:600;letter-spacing:.04em}
+@media(max-width:900px){.rodape-in{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.rodape-in{grid-template-columns:1fr;padding-top:44px}.rodape-fim{justify-content:center;text-align:center}}
+.row{align-items:end}
+.avancado{border:2px dashed var(--mist);border-radius:10px;padding:10px 14px;background:#fff}
+.avancado summary{cursor:pointer;font-weight:600;font-size:.92rem;color:var(--blue)}
+.avancado label{margin-top:10px}
+.nota{color:var(--mute);font-size:.88rem;margin:6px 0 0}
+
+/* ===== EFEITOS NAS LETRAS ===== */
+.hero .nome{position:relative;display:inline-block;perspective:700px;font-size:clamp(2.2rem,5.4vw,5rem)}
+.hero .nome .l{display:inline-block;animation:letra .9s cubic-bezier(.2,.9,.25,1.2) backwards,pulso 4.5s ease-in-out infinite;animation-delay:calc(var(--i)*75ms + .25s),calc(2.2s + var(--i)*.18s);transition:transform .25s}
+.hero .nome .l:hover{transform:translateY(-.1em) scale(1.1)}
+.hero .nome .sp{display:inline-block;width:.3em}
+.hero .eyebrow .sp{display:inline-block;width:.9em}
+@keyframes letra{from{opacity:0;transform:translateY(.7em) scale(.55) rotateX(-85deg);text-shadow:0 0 46px #fff}}
+@keyframes pulso{0%,100%{text-shadow:0 0 28px rgba(245,185,58,.45),0 4px 0 rgba(6,10,36,.6)}50%{text-shadow:0 0 56px rgba(245,185,58,.95),0 0 10px rgba(255,255,255,.75),0 4px 0 rgba(6,10,36,.6)}}
+.hero .nome b .l{background:linear-gradient(100deg,#E0A21F 30%,#FFF6CF 50%,#E0A21F 70%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;text-shadow:none;filter:drop-shadow(0 0 14px rgba(245,185,58,.7));animation:letra .9s cubic-bezier(.2,.9,.25,1.2) backwards,brilhar 3.2s linear infinite;animation-delay:calc(var(--i)*75ms + .25s),calc(var(--i)*-.14s)}
+@keyframes brilhar{from{background-position:200% 0}to{background-position:-100% 0}}
+.hero .eyebrow .l{display:inline-block;animation:letraS .6s ease backwards;animation-delay:calc(var(--i)*38ms + .05s)}
+@keyframes letraS{from{opacity:0;transform:translateY(.6em)}}
+.fag{position:absolute;color:#FFE9A8;font-style:normal;font-size:.3em;line-height:1;opacity:0;pointer-events:none;text-shadow:0 0 12px #F5B93A;animation:cintila 2.8s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes cintila{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:1;transform:scale(1.25) rotate(45deg)}}
+.hero .sub{animation:sobe .9s ease 1.7s backwards}
+.cta{animation:sobe .9s ease 2s backwards,brilhoBtn 2.8s ease-in-out 3.2s infinite}
+@keyframes sobe{from{opacity:0;transform:translateY(16px)}}
+@keyframes brilhoBtn{0%,100%{box-shadow:0 0 0 2px rgba(255,255,255,.5) inset,0 10px 30px rgba(245,185,58,.4)}50%{box-shadow:0 0 0 2px rgba(255,255,255,.7) inset,0 12px 44px rgba(245,185,58,.85)}}
+@media(prefers-reduced-motion:reduce){.hero .l,.hero .sub,.cta,.fag{animation:none!important}.fag{display:none}}
+
+/* ===== ACABAMENTO DA EXPERIÊNCIA ===== */
+main{max-width:1160px;gap:40px;padding-top:44px}
+@media(min-width:860px){main{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:52px;padding-top:56px}}
+.formulario{padding:30px;background:#fff;border:1px solid #E1E2ED;border-radius:14px;box-shadow:0 16px 48px rgba(20,22,58,.07)}
+.formulario h1{max-width:14ch;font-size:2.5rem;line-height:1.08}
+.formulario .lead{margin:12px 0 26px;max-width:42ch}
+.formulario form{gap:16px}
+.formulario label{gap:7px}
+.formulario input{width:100%;min-width:0;min-height:50px;padding:11px 13px;border:1px solid #D9DBE8;border-radius:8px;transition:border-color .18s,box-shadow .18s}
+.formulario input:hover{border-color:#9B9DB8}
+.formulario input:focus{border-color:var(--blue);outline:0;box-shadow:0 0 0 3px rgba(86,113,106,.16)}
+.row{grid-template-columns:repeat(2,minmax(0,1fr))}
+.avancado{border:1px solid #E1E2ED;border-radius:8px;background:#F8F8FC}
+.avancado[open]{background:#fff}
+#btn{min-height:54px;border-radius:8px;background:var(--ink);box-shadow:0 5px 14px rgba(20,22,58,.15);transition:transform .18s,background .18s,box-shadow .18s}
+#btn:hover:not(:disabled){background:#344B45;box-shadow:0 8px 18px rgba(32,43,53,.18);transform:translateY(-1px)}
+.erro{font-size:.92rem}
+#roda{padding:18px;border-radius:14px;background:radial-gradient(circle at 50% 45%,#fff 0%,#F2F1FA 72%,rgba(242,241,250,0) 100%)}
+.panel{border:1px solid #E1E2ED;border-radius:10px;box-shadow:0 12px 34px rgba(20,22,58,.06)}
+.trio{gap:16px}
+.card{background:#fff;border:1px solid #E1E2ED;border-radius:8px;padding:20px;display:flex;gap:14px;align-items:center;transition:transform .2s,border-color .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);border-color:#D7C48E;box-shadow:0 10px 24px rgba(20,22,58,.07)}
+.card svg{width:54px;height:54px}
+.universo{grid-column:1/-1}
+.universo-cabecalho{max-width:660px;margin:0 auto 24px;text-align:center}
+.universo-cabecalho p,.guia-chamada p{color:var(--mute)}
+.universo-galeria{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.universo-card{overflow:hidden;background:#fff;border:1px solid #E1E2ED;border-radius:16px;box-shadow:0 12px 32px rgba(20,22,58,.07);transition:transform .22s,box-shadow .22s}
+.universo-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(20,22,58,.12)}
+.universo-arte{display:block;width:100%;height:auto;background:#182044}
+.universo-texto{padding:20px 22px 24px}
+.universo-texto h3,.guia-chamada h2{margin:0 0 8px;font:700 1.3rem/1.1 "Bricolage Grotesque",system-ui,sans-serif}
+.universo-texto p{margin:0;color:var(--mute);font-size:.96rem}
+.universo-texto .marca-arte{display:block;margin-bottom:8px;color:#8A7040;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.guia-chamada{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(240px,.9fr);align-items:center;gap:24px;padding:24px;border:1px solid #E1E2ED;border-radius:16px;background:linear-gradient(120deg,#fff,#F1F1F7)}
+.guia-chamada p{margin:8px 0 16px}
+.guia-capa{display:block;width:100%;max-width:330px;margin:auto}
+.guia-link{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:8px;background:var(--ink);color:#fff;font-weight:600;text-decoration:none}
+.guia-link:hover{background:#344B45}
+.guia-link:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.guia-aviso{display:inline-block;padding:10px 14px;border:1px solid #D9DBE8;border-radius:8px;color:#344B45;font-size:.92rem;font-weight:600}
+.downloads{grid-column:1/-1}
+.downloads-cabecalho{max-width:660px;margin:0 auto 24px;text-align:center}
+.downloads-cabecalho p,.download-card p{color:var(--mute)}
+.downloads-grade{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.download-card{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:22px;background:#fff;border:1px solid #E1E2ED;border-radius:16px;box-shadow:0 12px 32px rgba(20,22,58,.07)}
+.download-card h3{margin:0;font:700 1.3rem/1.1 "Bricolage Grotesque",system-ui,sans-serif}
+.download-card p{margin:0}
+.download-card img{display:block;width:100%;max-height:230px;object-fit:cover;object-position:center 25%;border-radius:8px}
+.download-acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:4px}
+.download-secundario{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid #D9DBE8;border-radius:8px;color:var(--ink);font-weight:600;text-decoration:none}
+.download-secundario:hover{background:#F1F1F7}
+.download-secundario:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+#ebookEntrega{margin-top:24px;padding:18px;border-radius:10px;background:#F1F1F7}
+#ebookEntrega p{margin:0 0 12px;color:var(--mute)}
+#ebookEntrega h3{margin:0 0 8px}
+.signos h2{margin-bottom:16px}
+.sg{border-radius:8px;padding:14px 10px;transition:transform .18s,box-shadow .18s}
+.sg:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(20,22,58,.1)}
+.e0{background:#F8E2CD}.e1{background:#E5EBDD}.e2{background:#E0E7F2}.e3{background:#EAE3EF}
+@media(max-width:760px){.universo-galeria{grid-template-columns:1fr}.universo-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center}.universo-texto{padding:18px}.guia-chamada{grid-template-columns:1fr;text-align:center}.guia-capa{max-width:230px}}
+@media(max-width:600px){main{gap:28px;padding:28px 16px 40px}.formulario{padding:24px 18px}.formulario h1{font-size:2rem}.row{grid-template-columns:1fr;gap:14px}#roda{padding:4px}.universo-card{display:block}.universo-texto{padding:18px}.downloads-grade{grid-template-columns:1fr}.download-card{padding:18px}}
+@media(prefers-reduced-motion:reduce){.universo-card{transition:none}.universo-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.card,.sg,#btn{transition:none}.card:hover,.sg:hover,#btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-sol" viewBox="-50 -50 100 100">
+    <g stroke="#14163A" stroke-width="3" stroke-linecap="round">
+      <line y1="-46" y2="-34"/><line y1="-46" y2="-34" transform="rotate(45)"/><line y1="-46" y2="-34" transform="rotate(90)"/><line y1="-46" y2="-34" transform="rotate(135)"/>
+      <line y1="-46" y2="-34" transform="rotate(180)"/><line y1="-46" y2="-34" transform="rotate(225)"/><line y1="-46" y2="-34" transform="rotate(270)"/><line y1="-46" y2="-34" transform="rotate(315)"/>
+    </g>
+    <circle r="24" fill="#F5B93A" stroke="#14163A" stroke-width="3"/>
+  </symbol>
+  <symbol id="i-lua" viewBox="-50 -50 100 100">
+    <path d="M10,-40 A40,40 0 0 0 10,40 A60,60 0 0 1 10,-40Z" fill="#F5B93A" stroke="#14163A" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="30" cy="-24" r="2.5" fill="#14163A"/><circle cx="38" cy="8" r="2" fill="#14163A"/><circle cx="24" cy="30" r="3" fill="#14163A"/>
+  </symbol>
+  <symbol id="i-asc" viewBox="-50 -50 100 100">
+    <g stroke="#14163A" stroke-width="3" stroke-linecap="round">
+      <line y1="-20" y2="-32" transform="translate(0 10)"/><line y1="-20" y2="-32" transform="translate(0 10) rotate(-45)"/><line y1="-20" y2="-32" transform="translate(0 10) rotate(45)"/>
+      <line x1="-46" y1="10" x2="46" y2="10"/><line x1="-30" y1="24" x2="30" y2="24"/><line x1="-14" y1="38" x2="14" y2="38"/>
+    </g>
+    <path d="M-24,10 A24,24 0 0 1 24,10Z" fill="#F5B93A" stroke="#14163A" stroke-width="3" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<header class="hero" id="topo">
+  <div class="neb" aria-hidden="true"></div>
+  <canvas id="cosmos" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <p class="eyebrow">✦ Mapa astral online ✦</p>
+    <p class="nome">ASTROS <b>E VOCÊ</b></p>
+    <p class="sub">Seu mapa astral em 1 minuto: Sol, Lua, Ascendente e todos os planetas.</p>
+    <a class="cta" href="#form">Fazer meu mapa por R$ 19,90</a>
+    <div class="hoje" id="hoje" hidden></div>
+  </div>
+  <div class="rel" id="rel" aria-hidden="true"></div>
+</header>
+
+<main>
+<section class="formulario">
+  <h1>Seu mapa astral, calculado na hora</h1>
+  <p class="lead">Informe quando e onde você nasceu. Sol, Lua, Ascendente e planetas por R$ 19,90 no Pix.</p>
+  <form id="form">
+    <label>Nome <small>(opcional)</small><input id="nome" autocomplete="given-name"></label>
+    <div class="row">
+      <label>Data de nascimento<input id="data" type="date" required></label>
+      <label>Hora <small>Não sabe? Use 12:00</small><input id="hora" type="time" required></label>
+    </div>
+    <label>Cidade de nascimento<input id="cidade" placeholder="Ex.: Recife, Pernambuco, Brasil" required></label>
+    <details class="avancado">
+      <summary>Nasceu fora do Brasil? Ajustar o fuso horário</summary>
+      <label>Diferença para o horário de Greenwich (UTC) <small>Você normalmente não precisa preencher: o site descobre sozinho pelo local e pela data. Só use se nasceu fora do Brasil e o resultado parecer errado. Exemplos: Brasília = -3, Manaus = -4, Portugal = 0.</small><input id="fuso" type="number" step="0.5" placeholder="Deixe vazio para automático"></label>
+    </details>
+    <button id="btn" type="submit">Ver meu mapa por R$ 19,90</button>
+    <div class="erro" id="erro" role="alert"></div>
+  </form>
+</section>
+
+<section>
+  <div id="roda"></div>
+
+  <div class="panel" id="pagar" hidden>
+    <h2>Pague R$ 19,90 com Pix</h2>
+    <div class="demo" id="demo" hidden>Modo demonstração: nenhuma cobrança real.</div>
+    <div id="qr"></div>
+    <input id="codigo" readonly aria-label="Código Pix copia e cola">
+    <p><button class="alt" id="copiar" type="button">Copiar código Pix</button></p>
+    <p><button id="simular" type="button" hidden>Simular pagamento</button></p>
+    <p id="status" aria-live="polite">Aguardando o pagamento…</p>
+  </div>
+
+  <div class="panel" id="resultado" hidden>
+    <h2 id="titulo">Seu mapa</h2>
+    <table id="tabela"></table>
+    <p class="nota" id="notaFuso"></p>
+    <div class="txt" id="textos"></div>
+    <div id="ebookEntrega" hidden>
+      <h3>Seu e-book está liberado</h3>
+      <p>Baixe o guia original “Seu céu, em palavras” para ler quando quiser.</p>
+      <a class="guia-link" href="ebook.html" download="seu-ceu-em-palavras.html">Baixar meu e-book <span aria-hidden="true">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="universo" id="como" aria-labelledby="universo-titulo">
+  <div class="universo-cabecalho">
+    <h2 id="universo-titulo">Três caminhos para se conhecer</h2>
+    <p>Seu mapa reúne diferentes símbolos. Explore o Sol, a Lua e o Ascendente com calma e curiosidade.</p>
+  </div>
+  <div class="universo-galeria">
+    <article class="universo-card">
+      <svg class="universo-arte" viewBox="0 0 480 300" role="img" aria-labelledby="arte-sol-titulo">
+        <title id="arte-sol-titulo">Sol dourado surgindo sobre montanhas sob um céu estrelado</title>
+        <defs>
+          <linearGradient id="ceu-sol" x2="0" y2="1"><stop stop-color="#17234B"/><stop offset="1" stop-color="#694A6D"/></linearGradient>
+          <radialGradient id="brilho-sol"><stop stop-color="#FFE7A0" stop-opacity=".85"/><stop offset="1" stop-color="#F5B93A" stop-opacity="0"/></radialGradient>
+          <linearGradient id="montanha-sol" x2="0" y2="1"><stop stop-color="#53627D"/><stop offset="1" stop-color="#252C4A"/></linearGradient>
+        </defs>
+        <rect width="480" height="300" fill="url(#ceu-sol)"/>
+        <circle cx="340" cy="111" r="95" fill="url(#brilho-sol)"/>
+        <g fill="#FFF2C8"><circle cx="54" cy="50" r="2"/><circle cx="124" cy="88" r="1.5"/><circle cx="211" cy="41" r="2"/><circle cx="427" cy="55" r="1.5"/><circle cx="397" cy="143" r="2"/><circle cx="82" cy="143" r="1.5"/></g>
+        <path d="M66 142 90 107l24 35m-39-22 15-22 15 22m-15-22V72m-20 48 20-17 20 17" fill="none" stroke="#E8D6A9" stroke-opacity=".8" stroke-width="1.5"/>
+        <circle cx="341" cy="143" r="45" fill="#F5B93A"/>
+        <path d="M0 207 88 135l68 59 94-94 72 74 77-59 81 82v103H0Z" fill="url(#montanha-sol)"/>
+        <path d="m88 135 22 19-16-5 12 20-30-34m174-35 22 28-23-9 5 17-28-28m155 1 19 23-22-9 7 15-29-24" fill="#E5E2D9" fill-opacity=".72"/>
+        <path d="M0 245q74-31 154 1t154 0 172-5v59H0Z" fill="#202B35"/>
+        <path d="M290 209h102" stroke="#F5B93A" stroke-opacity=".65" stroke-width="1"/>
+        <text x="341" y="214" text-anchor="middle" fill="#FFE7A0" font-family="sans-serif" font-size="11" letter-spacing="3">ESSÊNCIA</text>
+      </svg>
+      <div class="universo-texto"><span class="marca-arte">01 · Sua luz</span><h3>O Sol</h3><p>Um símbolo de identidade, vitalidade e dos caminhos que você escolhe para expressar quem é.</p></div>
+    </article>
+    <article class="universo-card">
+      <svg class="universo-arte" viewBox="0 0 480 300" role="img" aria-labelledby="arte-lua-titulo">
+        <title id="arte-lua-titulo">Lua crescente iluminando um lago e uma janela arqueada</title>
+        <defs>
+          <linearGradient id="ceu-lua" x2="0" y2="1"><stop stop-color="#101A3D"/><stop offset="1" stop-color="#414C78"/></linearGradient>
+          <linearGradient id="agua-lua" x2="0" y2="1"><stop stop-color="#536289"/><stop offset="1" stop-color="#1D2749"/></linearGradient>
+          <radialGradient id="luz-lua"><stop stop-color="#D7D7FF" stop-opacity=".28"/><stop offset="1" stop-color="#D7D7FF" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect width="480" height="300" fill="url(#ceu-lua)"/>
+        <circle cx="340" cy="112" r="115" fill="url(#luz-lua)"/>
+        <g fill="#F6F1DF"><circle cx="63" cy="61" r="2"/><circle cx="124" cy="113" r="1.5"/><circle cx="200" cy="47" r="1.5"/><circle cx="425" cy="67" r="2"/><circle cx="402" cy="145" r="1.5"/></g>
+        <g fill="none" stroke="#D8D6ED" stroke-opacity=".75" stroke-width="1.5"><path d="m62 61 24 20 22-33 25 29"/><path d="m385 72 18 18 22-23"/></g>
+        <path d="M309 58a61 61 0 1 0 78 90 53 53 0 0 1-78-90Z" fill="#F4E7BF"/>
+        <circle cx="375" cy="71" r="5" fill="#F5B93A"/><circle cx="390" cy="98" r="2" fill="#fff"/>
+        <path d="M0 194q78-26 154 0t154 0 172 0v106H0Z" fill="url(#agua-lua)"/>
+        <path d="M312 193q28-19 56 0t56 0" fill="none" stroke="#E5D8B1" stroke-opacity=".65" stroke-width="2"/>
+        <path d="M0 230q73-19 147 0t147 0 186 0M0 268q88-14 176 0t176 0 128 0" fill="none" stroke="#C1C9E6" stroke-opacity=".3" stroke-width="2"/>
+        <path d="M50 300V185a48 48 0 0 1 96 0v115" fill="none" stroke="#D5C9A6" stroke-opacity=".78" stroke-width="5"/>
+        <path d="M98 140v160m-48-80h96" stroke="#D5C9A6" stroke-opacity=".55" stroke-width="2"/>
+        <text x="340" y="213" text-anchor="middle" fill="#E7E5F5" font-family="sans-serif" font-size="11" letter-spacing="3">MUNDO INTERIOR</text>
+      </svg>
+      <div class="universo-texto"><span class="marca-arte">02 · Seu mundo interior</span><h3>A Lua</h3><p>Uma lente simbólica para observar necessidades emocionais, hábitos e o que traz sensação de acolhimento.</p></div>
+    </article>
+    <article class="universo-card">
+      <svg class="universo-arte" viewBox="0 0 480 300" role="img" aria-labelledby="arte-asc-titulo">
+        <title id="arte-asc-titulo">Planeta com anéis surgindo no horizonte entre arcos concêntricos</title>
+        <defs>
+          <linearGradient id="ceu-asc" x2="0" y2="1"><stop stop-color="#263052"/><stop offset=".7" stop-color="#A46F75"/><stop offset="1" stop-color="#F1BD7C"/></linearGradient>
+          <linearGradient id="anel-asc"><stop stop-color="#F5B93A" stop-opacity=".12"/><stop offset=".5" stop-color="#FFE7B0"/><stop offset="1" stop-color="#F5B93A" stop-opacity=".18"/></linearGradient>
+          <radialGradient id="planeta-asc" cx=".35" cy=".25"><stop stop-color="#FFE5B0"/><stop offset=".5" stop-color="#D99A72"/><stop offset="1" stop-color="#744D68"/></radialGradient>
+        </defs>
+        <rect width="480" height="300" fill="url(#ceu-asc)"/>
+        <g fill="#FFF1D6"><circle cx="52" cy="53" r="2"/><circle cx="105" cy="92" r="1.5"/><circle cx="188" cy="50" r="2"/><circle cx="421" cy="57" r="1.5"/></g>
+        <path d="M64 252a176 176 0 0 1 352 0M91 252a149 149 0 0 1 298 0M122 252a118 118 0 0 1 236 0" fill="none" stroke="url(#anel-asc)" stroke-width="2"/>
+        <ellipse cx="288" cy="212" rx="93" ry="25" transform="rotate(-13 288 212)" fill="none" stroke="#F5D99C" stroke-opacity=".8" stroke-width="8"/>
+        <ellipse cx="288" cy="212" rx="93" ry="25" transform="rotate(-13 288 212)" fill="none" stroke="#8F6171" stroke-width="3"/>
+        <circle cx="288" cy="204" r="52" fill="url(#planeta-asc)"/>
+        <path d="M0 252q104-22 206 0t274 0v48H0Z" fill="#252A45"/>
+        <path d="M0 263q110-20 220 0t260 0" fill="none" stroke="#F5C77C" stroke-opacity=".7" stroke-width="2"/>
+        <path d="M55 252v-38m19 38v-58m-38 58v-22m370 22v-54m20 54v-35" stroke="#272A44" stroke-width="5"/>
+        <text x="240" y="282" text-anchor="middle" fill="#FFF1D6" font-family="sans-serif" font-size="11" letter-spacing="3">SEU PRIMEIRO HORIZONTE</text>
+      </svg>
+      <div class="universo-texto"><span class="marca-arte">03 · Seu jeito de chegar</span><h3>O Ascendente</h3><p>O signo que despontava no horizonte ao nascer; na astrologia, fala sobre começos e primeiras impressões.</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="guia-chamada" aria-labelledby="guia-titulo">
+  <div>
+    <span class="marca-arte">Um presente para continuar explorando</span>
+    <h2 id="guia-titulo">Seu céu, em palavras</h2>
+    <p>Um guia introdutório para entender Sol, Lua, Ascendente, planetas e elementos do mapa com curiosidade e sem complicação.</p>
+    <span class="guia-aviso">E-book liberado após a confirmação do pagamento</span>
+  </div>
+  <svg class="guia-capa" viewBox="0 0 300 360" role="img" aria-labelledby="capa-guia-titulo">
+    <title id="capa-guia-titulo">Capa ilustrada do e-book Seu céu, em palavras</title>
+    <defs>
+      <linearGradient id="capa-ceu" x2="0" y2="1"><stop stop-color="#15204A"/><stop offset="1" stop-color="#596084"/></linearGradient>
+      <radialGradient id="capa-luz"><stop stop-color="#F5B93A" stop-opacity=".75"/><stop offset="1" stop-color="#F5B93A" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect x="18" y="12" width="264" height="336" rx="18" fill="url(#capa-ceu)"/>
+    <circle cx="150" cy="166" r="88" fill="url(#capa-luz)"/>
+    <g fill="#FFF2C8"><circle cx="62" cy="66" r="2"/><circle cx="238" cy="71" r="2"/><circle cx="80" cy="203" r="1.5"/><circle cx="221" cy="221" r="1.5"/></g>
+    <circle cx="150" cy="163" r="59" fill="none" stroke="#F5D78C" stroke-opacity=".75"/>
+    <circle cx="150" cy="163" r="42" fill="none" stroke="#F5D78C" stroke-opacity=".4"/>
+    <path d="M150 104v118m-59-59h118m-100-42 83 84m0-84-83 84" stroke="#F5D78C" stroke-opacity=".45"/>
+    <circle cx="150" cy="163" r="15" fill="#F5B93A"/>
+    <text x="150" y="263" text-anchor="middle" fill="#F5B93A" font-family="Georgia,serif" font-size="12" letter-spacing="3">ASTROS E VOCÊ</text>
+    <text x="150" y="291" text-anchor="middle" fill="#fff" font-family="Georgia,serif" font-size="22" font-weight="bold">Seu céu,</text>
+    <text x="150" y="318" text-anchor="middle" fill="#fff" font-family="Georgia,serif" font-size="22" font-weight="bold">em palavras</text>
+    <text x="150" y="336" text-anchor="middle" fill="#D9E0FF" font-family="sans-serif" font-size="9" letter-spacing="1.5">UM GUIA PARA COMEÇAR</text>
+  </svg>
+</section>
+
+<section class="downloads" id="livros" aria-labelledby="downloads-titulo">
+  <div class="downloads-cabecalho">
+    <h2 id="downloads-titulo">Livros e materiais</h2>
+    <p>Continue explorando o céu ou baixe o livro para colorir.</p>
+  </div>
+  <div class="downloads-grade">
+    <article class="download-card">
+      <h3>Seu céu, em palavras</h3>
+      <p>O e-book de astrologia é liberado no resultado do mapa após a confirmação do pagamento.</p>
+      <div class="download-acoes">
+        <a class="guia-link" href="#form">Fazer meu mapa</a>
+      </div>
+    </article>
+    <article class="download-card">
+      <img src="fazendinha-kdp/arquivos/capa_frente_com_sangria.png" alt="Capa ilustrada do livro Aventuras na Fazendinha" loading="lazy">
+      <h3>Aventuras na Fazendinha</h3>
+      <p>Livro de colorir com 25 bichinhos. Escolha o PDF do livro ou baixe o pacote completo de arquivos.</p>
+      <div class="download-acoes">
+        <a class="guia-link" href="fazendinha-kdp/arquivos/miolo_kdp_50_paginas.pdf" download="aventuras-na-fazendinha.pdf">Baixar livro (PDF) <span aria-hidden="true">↓</span></a>
+        <a class="download-secundario" href="fazendinha-kdp/aventuras-na-fazendinha-arquivos-kdp.zip" download="aventuras-na-fazendinha-arquivos.zip">Arquivos completos (ZIP) <span aria-hidden="true">↓</span></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="signos" id="signos">
+  <h2>Os 12 signos</h2>
+  <div id="grade"></div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="rodape-in">
+    <div>
+      <div class="rod-marca"><svg width="44" height="44" viewBox="-50 -50 100 100" aria-hidden="true"><circle r="44" fill="none" stroke="#F5C45A" stroke-width="3"/><circle r="31" fill="none" stroke="#F5C45A" stroke-opacity=".6" stroke-width="2"/><path d="M6,-22 A22,22 0 0 0 6,22 A32,32 0 0 1 6,-22Z" fill="#F5C45A"/></svg><span>ASTROS <b>E VOCÊ</b></span></div>
+      <p>Seu mapa astral em 1 minuto. Calculamos as posições reais dos planetas no momento do seu nascimento e mostramos seu Sol, sua Lua, seu Ascendente e todos os planetas.</p>
+      <div class="selos"><span>✦ Pagamento via Pix</span><span>✦ Resultado na hora</span><span>✦ Cálculo astronômico</span></div>
+    </div>
+    <nav aria-label="Navegação do rodapé">
+      <h3>Navegue</h3>
+      <ul>
+        <li><a href="#form">Fazer meu mapa</a></li>
+        <li><a href="#como">O que o mapa mostra</a></li>
+        <li><a href="#livros">Livros para baixar</a></li>
+        <li><a href="#signos">Os 12 signos</a></li>
+        <li><a href="#topo">Voltar ao topo</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h3>Como funciona</h3>
+      <ul>
+        <li>1. Informe data, hora e cidade de nascimento</li>
+        <li>2. Pague R$ 19,90 com Pix</li>
+        <li>3. Receba seu mapa na hora</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Aviso importante</h3>
+      <p>As interpretações têm caráter de entretenimento e autoconhecimento. Elas não substituem orientação médica, psicológica, jurídica ou financeira.</p>
+      <p>Quanto mais exata a hora de nascimento, mais preciso o Ascendente.</p>
+    </div>
+  </div>
+  <div class="rodape-fim">
+    <span>© <span id="ano">2026</span> <strong>ASTROS E VOCÊ</strong>. Todos os direitos reservados.</span>
+    <a href="#topo">↑ Voltar ao topo</a>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+/* Quando o backend de Pix estiver no ar, coloque a URL aqui. Vazio = modo demonstração. */
+const CONFIG = { BACKEND_URL: "" };
+
+const SIGNOS = [
+ ["Áries","♈","ação direta, coragem e iniciativa"],
+ ["Touro","♉","estabilidade, prazer nas coisas simples e persistência"],
+ ["Gêmeos","♊","curiosidade, conversa e versatilidade"],
+ ["Câncer","♋","cuidado, memória afetiva e proteção"],
+ ["Leão","♌","brilho próprio, generosidade e criatividade"],
+ ["Virgem","♍","atenção aos detalhes, serviço e senso prático"],
+ ["Libra","♎","equilíbrio, parceria e senso estético"],
+ ["Escorpião","♏","intensidade, profundidade e transformação"],
+ ["Sagitário","♐","liberdade, otimismo e busca de sentido"],
+ ["Capricórnio","♑","disciplina, ambição e responsabilidade"],
+ ["Aquário","♒","originalidade, independência e visão de futuro"],
+ ["Peixes","♓","sensibilidade, imaginação e empatia"]
+];
+const CORPOS = [
+ ["Sun","Sol","☉"],["Moon","Lua","☽"],["Mercury","Mercúrio","☿"],["Venus","Vênus","♀"],
+ ["Mars","Marte","♂"],["Jupiter","Júpiter","♃"],["Saturn","Saturno","♄"],
+ ["Uranus","Urano","♅"],["Neptune","Netuno","♆"],["Pluto","Plutão","♇"]
+];
+const $ = s => document.querySelector(s);
+const norm = x => ((x % 360) + 360) % 360;
+const VS = "\uFE0E";
+
+function lonDe(corpo, t, ano){
+  const v = Astronomy.GeoVector(corpo, t, true);
+  if (Astronomy.Rotation_EQJ_ECT)
+    return norm(Astronomy.SphereFromVector(Astronomy.RotateVector(Astronomy.Rotation_EQJ_ECT(t), v)).lon);
+  return norm(Astronomy.Ecliptic(v).elon + 0.0139697 * (ano - 2000));
+}
+
+async function geocodificar(q){
+  const r = await fetch("https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&limit=1&q=" + encodeURIComponent(q));
+  const j = await r.json();
+  if (!j.length) throw new Error("Cidade não encontrada. Tente no formato Cidade, Estado, País.");
+  const a = j[0].address || {};
+  return { lat: +j[0].lat, lon: +j[0].lon, nome: j[0].display_name.split(",").slice(0,2).join(","), pais: (a.country_code || "").toLowerCase(), uf: a["ISO3166-2-lvl4"] || "" };
+}
+
+/* Descobre o fuso horário sozinho pelo local e pela data (inclui o horário de verão do passado) */
+const UF_ZONA = {AC:"America/Rio_Branco",AM:"America/Manaus",RO:"America/Porto_Velho",RR:"America/Boa_Vista",MT:"America/Cuiaba",MS:"America/Campo_Grande",PA:"America/Belem",AP:"America/Belem",TO:"America/Araguaina",MA:"America/Fortaleza",PI:"America/Fortaleza",CE:"America/Fortaleza",RN:"America/Fortaleza",PB:"America/Fortaleza",PE:"America/Recife",AL:"America/Maceio",SE:"America/Maceio",BA:"America/Bahia"};
+const PAIS_ZONA = {pt:"Europe/Lisbon",ar:"America/Argentina/Buenos_Aires",py:"America/Asuncion",uy:"America/Montevideo",cl:"America/Santiago",bo:"America/La_Paz",pe:"America/Lima",co:"America/Bogota",ve:"America/Caracas",ec:"America/Guayaquil",mx:"America/Mexico_City",es:"Europe/Madrid",fr:"Europe/Paris",it:"Europe/Rome",de:"Europe/Berlin",gb:"Europe/London",ie:"Europe/Dublin",nl:"Europe/Amsterdam",be:"Europe/Brussels",ch:"Europe/Zurich",jp:"Asia/Tokyo",ao:"Africa/Luanda",mz:"Africa/Maputo",cv:"Atlantic/Cape_Verde",in:"Asia/Kolkata",cn:"Asia/Shanghai",kr:"Asia/Seoul",il:"Asia/Jerusalem",lb:"Asia/Beirut",tr:"Europe/Istanbul"};
+function offZona(zona, y, m, d, h, mi){
+  const f = new Intl.DateTimeFormat("en-US", {timeZone: zona, hourCycle: "h23", year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric"});
+  const off = t => { const o = {}; for (const p of f.formatToParts(new Date(t))) o[p.type] = +p.value; return (Date.UTC(o.year, o.month-1, o.day, o.hour, o.minute, o.second) - t) / 6e4; };
+  const g = Date.UTC(y, m-1, d, h, mi); let o1 = off(g); const o2 = off(g - o1*6e4); if (o2 !== o1) o1 = o2;
+  return o1 / 60;
+}
+const fmtUTC = o => "UTC" + (o >= 0 ? "+" : "") + o;
+function fusoAuto(loc, data, hora, manual){
+  const [y,m,d] = data.split("-").map(Number), [h,mi] = hora.split(":").map(Number);
+  if (manual !== "" && !isNaN(parseFloat(manual))){ const o = parseFloat(manual); return {off: o, nota: "Fuso informado por você: " + fmtUTC(o) + "."}; }
+  let zona = null;
+  if (loc.pais === "br"){ const uf = (loc.uf || "").split("-")[1]; zona = UF_ZONA[uf] || (loc.lon < -67.8 ? "America/Rio_Branco" : loc.lon < -57.5 ? "America/Manaus" : "America/Sao_Paulo"); }
+  else if (loc.pais === "us") zona = loc.lon > -87 ? "America/New_York" : loc.lon > -101 ? "America/Chicago" : loc.lon > -115 ? "America/Denver" : "America/Los_Angeles";
+  else zona = PAIS_ZONA[loc.pais] || null;
+  if (zona){ try {
+    const o = offZona(zona, y, m, d, h, mi), a = offZona(zona, y, 1, 15, 12, 0), b = offZona(zona, y, 7, 15, 12, 0);
+    return {off: o, nota: "Fuso usado: " + fmtUTC(o) + (o > Math.min(a, b) ? " (horário de verão em vigor no dia do nascimento)." : ".")};
+  } catch(e){} }
+  const o = Math.round(loc.lon / 15);
+  return {off: o, nota: "Fuso estimado pela localização: " + fmtUTC(o) + ". Se souber o fuso correto, preencha em \"Nasceu fora do Brasil?\" e refaça."};
+}
+
+function calcular(data, hora, fuso, lat, lon){
+  const [y,m,d] = data.split("-").map(Number), [h,mi] = hora.split(":").map(Number);
+  const t = Astronomy.MakeTime(new Date(Date.UTC(y, m-1, d, h, mi) - fuso * 3600000));
+  const planetas = CORPOS.map(([b,nome,g]) => ({ nome, g, lon: lonDe(Astronomy.Body[b], t, y) }));
+  const ramc = norm(Astronomy.SiderealTime(t) * 15 + lon) * Math.PI / 180;
+  const eps = (23.4393 - 0.013 * (y - 2000) / 100) * Math.PI / 180;
+  const phi = lat * Math.PI / 180;
+  const asc = norm(Math.atan2(Math.cos(ramc), -(Math.sin(ramc) * Math.cos(eps) + Math.tan(phi) * Math.sin(eps))) * 180 / Math.PI);
+  return { planetas, asc };
+}
+
+function roda(asc, planetas){
+  const pt = (L, r) => { const a = (180 + (L - asc)) * Math.PI / 180; return [200 + r * Math.cos(a), 200 - r * Math.sin(a)]; };
+  let s = '<svg class="wheel" viewBox="0 0 400 400" role="img" aria-label="Roda do mapa astral" font-family="\'Segoe UI Symbol\',\'Noto Sans Symbols\',sans-serif" text-anchor="middle" dominant-baseline="central">';
+  const cor = ["#FFD9A8","#D8EBC9","#D4E2FF","#DDD6F7"];
+  for (let i = 0; i < 12; i++){
+    const [a,b] = pt(i*30,190), [c,d] = pt((i+1)*30,190), [e,f] = pt((i+1)*30,150), [g,h] = pt(i*30,150);
+    s += `<path d="M${a} ${b}A190 190 0 0 0 ${c} ${d}L${e} ${f}A150 150 0 0 1 ${g} ${h}Z" fill="${cor[i%4]}"/>`;
+  }
+  s += '<circle cx="200" cy="200" r="190" fill="none" stroke="#14163A" stroke-width="2"/>';
+  s += '<circle cx="200" cy="200" r="150" fill="#F7F6FC" stroke="#14163A" stroke-width="2"/>';
+  s += '<circle cx="200" cy="200" r="56" fill="#fff" stroke="#E9E8F6" stroke-width="2"/>';
+  for (let i = 0; i < 12; i++){
+    const [x1,y1] = pt(i*30, 150), [x2,y2] = pt(i*30, 190), [x3,y3] = pt(i*30, 56);
+    s += `<line x1="${x3}" y1="${y3}" x2="${x1}" y2="${y1}" stroke="#E9E8F6" stroke-width="1.5"/>`;
+    s += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#14163A" stroke-width="2"/>`;
+    const [gx,gy] = pt(i*30 + 15, 170);
+    s += `<text x="${gx}" y="${gy}" font-size="20" fill="#3B3FD8">${SIGNOS[i][1]}${VS}</text>`;
+  }
+  const [ax,ay] = pt(asc, 56), [bx,by] = pt(asc, 190);
+  s += `<line x1="${ax}" y1="${ay}" x2="${bx}" y2="${by}" stroke="#F5B93A" stroke-width="4"/>`;
+  s += '<text x="14" y="188" font-size="11" font-weight="700" fill="#14163A" text-anchor="start">ASC</text>';
+  let ant = -99, nivel = 0;
+  [...planetas].sort((a,b) => a.lon - b.lon).forEach(p => {
+    nivel = (p.lon - ant < 9) ? (nivel + 1) % 3 : 0; ant = p.lon;
+    const [dx,dy] = pt(p.lon, 150), [tx,ty] = pt(p.lon, 128 - nivel * 22);
+    s += `<circle cx="${dx}" cy="${dy}" r="3.5" fill="#F5B93A" stroke="#14163A"/>`;
+    s += `<text x="${tx}" y="${ty}" font-size="19" fill="#14163A">${p.g}${VS}</text>`;
+  });
+  s += '<use href="#i-sol" x="170" y="170" width="60" height="60"/>';
+  return s + '</svg>';
+}
+
+const posicao = L => { const s = Math.floor(L / 30), g = L % 30; return { s, txt: `${SIGNOS[s][0]} ${Math.floor(g)}°${String(Math.floor((g % 1) * 60)).padStart(2,"0")}'` }; };
+
+function mostrarMapa(r, nome, local, nota){
+  const sol = r.planetas[0], lua = r.planetas[1];
+  $("#roda").innerHTML = roda(r.asc, r.planetas);
+  $("#titulo").textContent = (nome ? "Mapa de " + nome : "Seu mapa") + " · " + local;
+  $("#notaFuso").textContent = nota || "";
+  const linhas = [["Ascendente", r.asc], ...r.planetas.map(p => [p.g + VS + " " + p.nome, p.lon])];
+  $("#tabela").innerHTML = linhas.map(([n,L]) => `<tr><td>${n}</td><td>${posicao(L).txt}</td></tr>`).join("");
+  const sS = SIGNOS[posicao(sol.lon).s], sL = SIGNOS[posicao(lua.lon).s], sA = SIGNOS[posicao(r.asc).s];
+  $("#textos").innerHTML =
+    `<p><b>Sol em ${sS[0]}</b> — sua essência: ${sS[2]}.</p>` +
+    `<p><b>Lua em ${sL[0]}</b> — por dentro, você se move por: ${sL[2]}.</p>` +
+    `<p><b>Ascendente em ${sA[0]}</b> — por fora, os outros percebem: ${sA[2]}.</p>`;
+  $("#pagar").hidden = true;
+  $("#resultado").hidden = false;
+  $("#resultado").scrollIntoView({ behavior: "smooth" });
+}
+
+async function cobrar(aoPagar){
+  $("#pagar").hidden = false;
+  $("#pagar").scrollIntoView({ behavior: "smooth" });
+  if (!CONFIG.BACKEND_URL){
+    $("#demo").hidden = false; $("#simular").hidden = false;
+    $("#codigo").value = "00020101021226...(código Pix de exemplo)";
+    $("#qr").innerHTML = "";
+    $("#simular").onclick = aoPagar;
+    return;
+  }
+  const r = await fetch(CONFIG.BACKEND_URL + "/pix", { method: "POST" });
+  if (!r.ok) throw new Error("Não foi possível gerar o Pix. Tente de novo.");
+  const { id, copiaECola } = await r.json();
+  $("#codigo").value = copiaECola;
+  $("#qr").innerHTML = "";
+  if (window.QRCode) new QRCode($("#qr"), { text: copiaECola, width: 200, height: 200 });
+  const timer = setInterval(async () => {
+    try {
+      const j = await (await fetch(CONFIG.BACKEND_URL + "/pix/" + id)).json();
+      if (j.pago){ clearInterval(timer); aoPagar(); }
+    } catch (e) {}
+  }, 4000);
+}
+
+$("#copiar").onclick = () => { $("#codigo").select(); navigator.clipboard?.writeText($("#codigo").value); $("#copiar").textContent = "Código copiado"; };
+
+$("#form").addEventListener("submit", async e => {
+  e.preventDefault();
+  $("#erro").textContent = ""; $("#resultado").hidden = true; $("#ebookEntrega").hidden = true;
+  $("#btn").disabled = true;
+  try {
+    const local = await geocodificar($("#cidade").value.trim());
+    const fz = fusoAuto(local, $("#data").value, $("#hora").value, $("#fuso").value.trim());
+    const r = calcular($("#data").value, $("#hora").value, fz.off, local.lat, local.lon);
+    await cobrar(() => {
+      mostrarMapa(r, $("#nome").value.trim(), local.nome, fz.nota);
+      $("#ebookEntrega").hidden = false;
+    });
+  } catch (err) {
+    $("#erro").textContent = err.message || "Algo deu errado. Tente de novo.";
+  }
+  $("#btn").disabled = false;
+});
+
+$("#roda").innerHTML = roda(0, []);
+
+const DATAS = ["21/03 – 19/04","20/04 – 20/05","21/05 – 20/06","21/06 – 22/07","23/07 – 22/08","23/08 – 22/09","23/09 – 22/10","23/10 – 21/11","22/11 – 21/12","22/12 – 19/01","20/01 – 18/02","19/02 – 20/03"];
+const ELEM = ["Fogo","Terra","Ar","Água"];
+$("#grade").innerHTML = SIGNOS.map((s,i) =>
+  `<div class="sg e${i%4}"><span class="g">${s[1]}${VS}</span><b>${s[0]}</b><small>${DATAS[i]}</small><small>${ELEM[i%4]}</small></div>`).join("");
+
+
+</script>
+
+<script>
+(function(){
+const cv=document.getElementById("cosmos"); if(!cv) return;
+const ctx=cv.getContext("2d"), hero=document.getElementById("topo"), relEl=document.getElementById("rel");
+const reduz=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const ANO=38, DIAS=365.25/ANO, TAU=Math.PI*2, t0=new Date();
+const defs=[["Mercúrio","Mercury",.39,.2408,252.25,4.2,"#B9ADA0"],["Vênus","Venus",.72,.6152,181.98,6.8,"#EAD08F"],["Terra","Earth",1,1,100.46,7.4,"#3E8BFF"],["Marte","Mars",1.52,1.8808,355.45,5.4,"#D9573A"],["Júpiter","Jupiter",5.2,11.862,34.4,15,"#D9A066"],["Saturno","Saturn",9.54,29.457,49.94,12,"#E8D3A0"],["Urano","Uranus",19.2,84.02,313.23,8.8,"#8FE3E8"],["Netuno","Neptune",30.07,164.79,304.88,8.6,"#4A66FF"]];
+const P=defs.map(d=>{let th=NaN;
+  try{if(typeof Astronomy!=="undefined")th=Astronomy.Ecliptic(Astronomy.HelioVector(Astronomy.Body[d[1]],Astronomy.MakeTime(t0))).elon;}catch(e){}
+  if(!isFinite(th))th=d[4]+360*((t0-Date.UTC(2000,0,1,12))/864e5)/(365.25*d[3]);
+  return{n:d[0],a:d[2],w:TAU/(ANO*d[3]),th:th*Math.PI/180,r:d[5],c:d[6]};});
+const belt=Array.from({length:240},()=>{const a=2.15+Math.random()*1.1;return{a,th:Math.random()*TAU,w:TAU/(ANO*Math.pow(a,1.5))}});
+const stars=Array.from({length:180},()=>({x:Math.random(),y:Math.random(),r:.3+Math.random()*1.3,v:1+Math.random()*7,f:.6+Math.random()*2,p:Math.random()*6}));
+let W,H,cx,cy,Rmax,k,mob,T=.4,rot=-.13,E=0,DT=0,mx=0,my=0,tx=0,ty=0,sh=null,nx=4,lastRel="";
+function resize(){const dpr=Math.min(devicePixelRatio||1,2),r=hero.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+ mob=W<760;cx=mob?W*.5:W*.69;cy=mob?H*.77:H*.53;Rmax=mob?W*.5:Math.min(W*.33,H*.95);k=Math.max(.6,Math.min(1.3,W/1100));if(reduz)draw();}
+function sphere(x,y,r,col,fx){
+ ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r,0,TAU);ctx.fill();
+ ctx.save();ctx.beginPath();ctx.arc(x,y,r,0,TAU);ctx.clip();if(fx)fx(x,y,r);
+ const ux=cx-x,uy=cy-y,l=Math.hypot(ux,uy)||1,ox=x+ux/l*r*.55,oy=y+uy/l*r*.55,g=ctx.createRadialGradient(ox,oy,r*.05,ox,oy,r*1.9);
+ g.addColorStop(0,"rgba(255,255,255,.38)");g.addColorStop(.4,"rgba(255,255,255,0)");g.addColorStop(1,"rgba(2,4,20,.8)");
+ ctx.fillStyle=g;ctx.fillRect(x-r,y-r,2*r,2*r);ctx.restore();}
+function ring(x,y,r,a0,a1){const an=rot-.35;ctx.lineWidth=r*.34;ctx.strokeStyle="rgba(232,211,160,.62)";ctx.beginPath();ctx.ellipse(x,y,r*1.95,r*.6,an,a0,a1);ctx.stroke();ctx.lineWidth=r*.09;ctx.strokeStyle="rgba(110,90,60,.6)";ctx.beginPath();ctx.ellipse(x,y,r*1.62,r*.5,an,a0,a1);ctx.stroke();}
+function corpo(p,x,y){
+ const r=p.r*k;
+ if(p.n==="Saturno"){ring(x,y,r,Math.PI,TAU);sphere(x,y,r,p.c);ring(x,y,r,0,Math.PI);}
+ else if(p.n==="Terra"){
+  const m=E*TAU/2.84,mr=r*2.7,mxp=x+Math.cos(m)*mr,myp=y+Math.sin(m)*mr*.4,fr=Math.sin(m)>0,lua=()=>sphere(mxp,myp,2.4*k+.5,"#D6D6E4");
+  if(!fr)lua();
+  sphere(x,y,r,p.c,(x,y,r)=>{ctx.fillStyle="#58B368";for(let i=0;i<3;i++){const a=E*1.4+i*2.2,c=Math.cos(a);if(c>0){ctx.beginPath();ctx.ellipse(x+Math.sin(a)*r*.7,y+(i-1)*r*.38,r*.32*c,r*.27,0,0,TAU);ctx.fill();}}});
+  ctx.strokeStyle="rgba(130,190,255,.55)";ctx.lineWidth=1.4;ctx.beginPath();ctx.arc(x,y,r+.8,0,TAU);ctx.stroke();
+  if(fr)lua();}
+ else if(p.n==="Júpiter"){sphere(x,y,r,p.c,(x,y,r)=>{ctx.fillStyle="rgba(150,88,46,.6)";for(const b of[-.6,-.22,.2,.58])ctx.fillRect(x-r,y+b*r-r*.09,2*r,r*.19);ctx.fillStyle="rgba(200,80,50,.8)";ctx.beginPath();ctx.ellipse(x+r*.3,y+r*.3,r*.2,r*.11,0,0,TAU);ctx.fill();});}
+ else sphere(x,y,r,p.c);
+ if(!mob){ctx.textAlign="center";ctx.textBaseline="middle";ctx.font='600 10px "Instrument Sans",sans-serif';
+  if(p.n==="Terra"){const dx=x-cx,dy=y-cy,l=Math.hypot(dx,dy)||1,ux=dx/l,uy=dy/l;ctx.strokeStyle="rgba(245,185,58,.7)";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x+ux*(r+4),y+uy*(r+4));ctx.lineTo(x+ux*(r+26*k),y+uy*(r+26*k));ctx.stroke();ctx.fillStyle="#F5B93A";ctx.fillText("VOCÊ ESTÁ AQUI",x+ux*(r+26*k)+(ux>0?48:-48)*Math.abs(ux),y+uy*(r+26*k)+(uy>0?8:-8));}
+  else if(p.a>5){ctx.fillStyle="rgba(255,255,255,.55)";ctx.fillText(p.n.toUpperCase(),x,y+r+(p.n==="Saturno"?r*.9:0)+13);}}}
+function sol(){
+ const s=26*k,pulso=1+.03*Math.sin(E*1.7);
+ let g=ctx.createRadialGradient(cx,cy,s*.5,cx,cy,s*8*pulso);g.addColorStop(0,"rgba(255,200,90,.6)");g.addColorStop(.22,"rgba(255,150,60,.2)");g.addColorStop(1,"rgba(255,120,40,0)");
+ ctx.fillStyle=g;ctx.fillRect(cx-s*9,cy-s*9,s*18,s*18);
+ ctx.save();ctx.translate(cx,cy);ctx.rotate(E*.05);ctx.lineWidth=1.3*k;ctx.lineCap="round";
+ for(let i=0;i<28;i++){const a=i*TAU/28,l=s*(1.5+.55*Math.sin(E*1.3+i*1.7));ctx.strokeStyle=`rgba(255,214,120,${.28+.18*Math.sin(E+i)})`;ctx.beginPath();ctx.moveTo(Math.cos(a)*s*1.15,Math.sin(a)*s*1.15);ctx.lineTo(Math.cos(a)*(s+l),Math.sin(a)*(s+l));ctx.stroke();}
+ ctx.restore();
+ g=ctx.createRadialGradient(cx-s*.28,cy-s*.28,s*.1,cx,cy,s);g.addColorStop(0,"#FFF8C9");g.addColorStop(.5,"#FFD25A");g.addColorStop(1,"#F08A2C");
+ ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,s,0,TAU);ctx.fill();}
+function draw(){
+ ctx.clearRect(0,0,W,H);
+ const cr=Math.cos(rot),sr=Math.sin(rot),R=a=>Rmax*Math.sqrt(a/30.07);
+ const proj=(r,th)=>{const x=r*Math.cos(th),y=r*Math.sin(th)*T;return[cx+x*cr-y*sr,cy+x*sr+y*cr,Math.sin(th)]};
+ const ell=(r,a0,a1)=>{ctx.beginPath();ctx.ellipse(cx,cy,r,r*T,rot,a0,a1)};
+ for(const s of stars){ctx.globalAlpha=.25+.6*Math.abs(Math.sin(E*s.f+s.p));ctx.fillStyle="#fff";ctx.beginPath();ctx.arc((s.x*W+E*s.v)%W,s.y*H,s.r,0,TAU);ctx.fill();}
+ ctx.globalAlpha=1;
+ const Rz=Rmax*1.13;ctx.strokeStyle="rgba(245,185,58,.3)";ctx.lineWidth=1;ell(Rz,0,TAU);ctx.stroke();ctx.strokeStyle="rgba(245,185,58,.16)";ell(Rz*.93,0,TAU);ctx.stroke();
+ ctx.font=`${Math.round(13*k+3)}px "DejaVu Sans","Segoe UI Symbol",sans-serif`;ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillStyle="rgba(245,185,58,.6)";
+ for(let i=0;i<12;i++){const q=proj(Rz*.965,E*.03+i*TAU/12);ctx.fillText(SIGNOS[i][1]+"\uFE0E",q[0],q[1]);}
+ ctx.lineWidth=1;ctx.strokeStyle="rgba(180,200,255,.13)";for(const p of P){ell(R(p.a),0,TAU);ctx.stroke();}
+ ctx.fillStyle="rgba(225,212,190,.55)";for(const b of belt){const q=proj(R(b.a),b.th+E*b.w);ctx.fillRect(q[0],q[1],1.2*k+.3,1.2*k+.3);}
+ const L=P.map(p=>{const th=p.th+E*p.w,q=proj(R(p.a),th);
+  const tl=Math.min(1.1,p.w*3.2);for(let j=0;j<18;j++){const A=proj(R(p.a),th-tl*(j+1)/18),B=proj(R(p.a),th-tl*j/18);ctx.strokeStyle=`rgba(190,210,255,${.5*(1-j/18)})`;ctx.lineWidth=1.4*k;ctx.beginPath();ctx.moveTo(A[0],A[1]);ctx.lineTo(B[0],B[1]);ctx.stroke();}
+  return{p,x:q[0],y:q[1],d:q[2]}});
+ for(const o of L)if(o.d<0)corpo(o.p,o.x,o.y);
+ sol();
+ for(const o of L)if(o.d>=0)corpo(o.p,o.x,o.y);
+ if(!reduz&&!sh&&E>nx){sh={x:W*(.3+Math.random()*.65),y:H*Math.random()*.4,t:0};nx=E+5+Math.random()*5;}
+ if(sh){sh.t+=DT;const u=sh.t/.9;if(u>=1)sh=null;else{const len=120*k+60,x=sh.x-u*W*.35,y=sh.y+u*W*.12,g=ctx.createLinearGradient(x,y,x+len*.94,y-len*.34);
+  g.addColorStop(0,`rgba(255,255,255,${Math.sin(u*Math.PI)})`);g.addColorStop(1,"rgba(255,255,255,0)");ctx.strokeStyle=g;ctx.lineWidth=2;ctx.lineCap="round";ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+len*.94,y-len*.34);ctx.stroke();}}
+ const s="Simulação · "+new Date(t0.getTime()+E*DIAS*864e5).toLocaleDateString("pt-BR")+" · 1 s ≈ "+Math.round(DIAS)+" dias";if(s!==lastRel){relEl.textContent=s;lastRel=s;}}
+let last=performance.now();
+function frame(n){DT=Math.min(.05,(n-last)/1000);last=n;E+=DT;mx+=(tx-mx)*.05;my+=(ty-my)*.05;T=.4+my*.04;rot=-.13+mx*.05;draw();requestAnimationFrame(frame);}
+hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect();tx=((e.clientX-r.left)/r.width-.5)*2;ty=((e.clientY-r.top)/r.height-.5)*2;});
+new ResizeObserver(resize).observe(hero);resize();
+if(reduz)draw();else requestAnimationFrame(frame);
+try{if(typeof Astronomy!=="undefined"&&typeof lonDe==="function"){const t=Astronomy.MakeTime(new Date()),y=new Date().getFullYear(),f=(g,L,n)=>`<span>${g}&#xFE0E; ${n} em ${posicao(L).txt}</span>`;
+ document.getElementById("hoje").innerHTML="<span>Hoje no céu</span>"+f("☉",lonDe(Astronomy.Body.Sun,t,y),"Sol")+f("☽",lonDe(Astronomy.Body.Moon,t,y),"Lua");document.getElementById("hoje").hidden=false;}}catch(e){}
+})();
+</script>
+<script>document.getElementById("ano").textContent=new Date().getFullYear();</script>
+<script>
+(function(){
+ const nome=document.querySelector(".hero .nome"), eb=document.querySelector(".hero .eyebrow"); if(!nome||!eb) return;
+ const letras=(s,i0)=>{let i=i0||0;return [...s].map(c=>c===" "?'<span class="sp"></span>':`<span class="l" style="--i:${i++}" aria-hidden="true">${c}</span>`).join("")};
+ nome.setAttribute("aria-label",nome.textContent.trim());
+ nome.innerHTML=letras("ASTROS ")+"<b>"+letras("E VOCÊ",7)+"</b>";
+ [[8,-18,0],[34,-26,.6],[62,-20,1.2],[93,-12,1.8],[18,96,.9],[48,104,1.5],[84,98,.3]].forEach(([x,y,d])=>{const s=document.createElement("i");s.className="fag";s.textContent="✦";s.setAttribute("aria-hidden","true");s.style.cssText=`left:${x}%;top:${y}%;--d:${d}s`;nome.appendChild(s)});
+ eb.setAttribute("aria-label",eb.textContent.trim()); eb.innerHTML=letras(eb.textContent.trim());
+})();
+</script>
+</body>
+</html>

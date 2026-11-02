@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="E-book ilustrado de 30 páginas para começar a explorar os símbolos do mapa astral.">
+<title>Seu céu, em palavras | Astros e Você</title>
+<style>
+:root{--ink:#202B35;--blue:#26365C;--gold:#C7A66A;--paper:#F7F6F1;--mute:#68716F;--line:#E5E2D9;--lav:#D8D6ED}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#EAE9E3;color:var(--ink);font:16px/1.6 Georgia,"Times New Roman",serif}
+a{color:#344B45}
+.barra{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px max(16px,calc((100vw - 940px)/2));background:rgba(247,246,241,.97);border-bottom:1px solid var(--line);font:600 .88rem/1.4 system-ui,sans-serif}
+.barra a{text-decoration:none}
+.barra button{border:0;border-radius:6px;padding:9px 13px;background:var(--blue);color:#fff;font:inherit;cursor:pointer}
+.livro{display:grid;gap:24px;max-width:900px;margin:28px auto;padding:0 20px}
+.pagina{position:relative;display:flex;flex-direction:column;min-height:1100px;padding:54px 64px 46px;overflow:hidden;background:var(--paper);box-shadow:0 10px 38px rgba(32,43,53,.12)}
+.pagina::before{position:absolute;top:0;left:64px;right:64px;height:4px;background:linear-gradient(90deg,var(--gold),#E8D9B6,transparent);content:""}
+.pagina-cab{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;color:#8A7040;font:700 .68rem/1.4 system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.pagina-cab .marca-pagina{color:#79817D;letter-spacing:.08em}
+.pagina h1,.pagina h2{margin:0 0 14px;color:var(--blue);font:400 clamp(1.9rem,4vw,2.55rem)/1.12 Georgia,"Times New Roman",serif}
+.pagina h3{margin:17px 0 6px;color:#344B45;font:700 1rem/1.3 system-ui,sans-serif}
+.pagina p{margin:0 0 11px}
+.pagina ul,.pagina ol{margin:6px 0 14px;padding-left:22px}
+.pagina li{margin:5px 0}
+.pagina strong{color:#26365C}
+.pagina .abertura{max-width:58ch;color:var(--mute);font-size:1.04rem}
+.arte{display:block;width:100%;height:220px;margin:5px 0 18px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:radial-gradient(ellipse at 18% 24%,rgba(255,104,151,.42),transparent 38%),radial-gradient(ellipse at 82% 78%,rgba(54,211,202,.36),transparent 42%),linear-gradient(135deg,#25245A,#34346E 54%,#174C62);box-shadow:0 12px 28px rgba(37,36,90,.2);flex:none}
+.arte .linha{fill:none;stroke:#FFE09A;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.arte .fina{fill:none;stroke:#A9F0ED;stroke-opacity:.85;stroke-width:1.5}
+.arte .estrela{fill:#FFF6D6;filter:drop-shadow(0 0 5px rgba(255,231,154,.8))}
+.arte .dourado{fill:#FFD166;filter:drop-shadow(0 0 5px rgba(255,153,85,.6))}
+.arte .planeta{fill:#D69A79}
+.arte .texto-arte{fill:#F5F0E7;font:12px system-ui,sans-serif;letter-spacing:2px}
+.pagina:nth-of-type(4n+2) .arte{background:radial-gradient(ellipse at 72% 18%,rgba(255,205,94,.48),transparent 34%),radial-gradient(ellipse at 18% 82%,rgba(82,221,202,.35),transparent 44%),linear-gradient(135deg,#203C63,#365B77 54%,#285F65)}
+.pagina:nth-of-type(4n+3) .arte{background:radial-gradient(ellipse at 75% 70%,rgba(253,133,173,.4),transparent 38%),radial-gradient(ellipse at 20% 20%,rgba(138,124,255,.42),transparent 44%),linear-gradient(135deg,#292451,#563C70 58%,#37496B)}
+.pagina:nth-of-type(4n+4) .arte{background:radial-gradient(ellipse at 22% 76%,rgba(255,164,92,.42),transparent 36%),radial-gradient(ellipse at 78% 24%,rgba(112,229,199,.35),transparent 42%),linear-gradient(135deg,#254A58,#3D526E 52%,#583D65)}
+.pagina:nth-of-type(4n+5) .arte{background:radial-gradient(ellipse at 78% 75%,rgba(123,221,255,.4),transparent 38%),radial-gradient(ellipse at 24% 20%,rgba(255,133,177,.4),transparent 40%),linear-gradient(135deg,#34315D,#3D5578 54%,#285363)}
+.nota{margin-top:5px;padding:13px 16px;border-left:3px solid var(--gold);background:#EEECE3;color:#4D5652}
+.pagina-rodape{display:flex;justify-content:space-between;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line);color:#79817D;font:600 .68rem/1.4 system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.capa{justify-content:center;text-align:center;color:#fff;background:radial-gradient(ellipse at 50% 40%,#4D5C84 0,#26365C 43%,#111A35 100%)}
+.capa::before{top:9%;left:10%;right:10%;height:auto;aspect-ratio:1;border:1px solid rgba(245,220,163,.45);border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 46px,rgba(245,220,163,.12) 47px 48px)}
+.capa::after{position:absolute;inset:15%;border:1px solid rgba(245,220,163,.28);border-radius:50%;content:"";pointer-events:none}
+.capa .pagina-cab{position:absolute;top:54px;left:64px;right:64px;color:#EAD8A8}
+.capa .pagina-cab .marca-pagina{color:#E3E5F0}
+.capa .arte{height:310px;border:0;box-shadow:none;background:none}
+.capa h1{color:#fff;font-size:clamp(3rem,7vw,5rem)}
+.capa h1 span{display:block;color:#F1D58E}
+.capa .abertura{max-width:35ch;margin:12px auto;color:#E3E5F0}
+.capa .pagina-rodape{position:absolute;right:64px;bottom:40px;left:64px;border-color:rgba(255,255,255,.25);color:#EAD8A8}
+.indice{display:grid;grid-template-columns:1fr 1fr;gap:9px 20px;margin:12px 0}
+.indice a{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:.92rem}
+.indice a:hover{color:#8A7040}
+.indice b{color:#8A7040;font:700 .72rem system-ui,sans-serif}
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.grade div{padding:10px;border-radius:8px;background:#F0EFE8}
+.grade b{display:block;color:#344B45;font:700 .85rem system-ui,sans-serif}
+.grade span{font-size:.82rem;color:var(--mute)}
+.ciclo{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.ciclo div{padding:12px 8px;text-align:center;border-radius:9px;background:#F0EFE8}
+.ciclo b{display:block;color:#344B45}
+.sinais{display:grid;grid-template-columns:1fr 1fr;gap:9px 18px;margin:12px 0}
+.sinais div{padding:10px 12px;border:1px solid var(--line);border-radius:8px}
+.sinais b{display:block;color:#344B45;font:700 .85rem system-ui,sans-serif}
+.sinais span{font-size:.86rem;color:var(--mute)}
+.reflexao{display:grid;gap:10px;margin:12px 0}
+.reflexao div{min-height:54px;padding:9px 12px;border:1px solid #D9DBE8;border-radius:7px;background:rgba(255,255,255,.55);color:#79817D;font-size:.9rem}
+.glossario{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+.glossario div{padding:9px 11px;background:#F0EFE8;border-radius:6px}
+.glossario dt{color:#344B45;font-weight:bold}
+.glossario dd{margin:2px 0 0;color:var(--mute);font-size:.85rem}
+.contracapa{justify-content:center;text-align:center;color:#fff;background:linear-gradient(150deg,#101A35,#26365C 65%,#594D68)}
+.contracapa h2{color:#F1D58E}
+.contracapa .abertura{max-width:42ch;margin:0 auto 15px;color:#E3E5F0}
+.contracapa .pagina-rodape{border-color:rgba(255,255,255,.25);color:#EAD8A8}
+@media(max-width:700px){
+  body{font-size:15px}
+  .barra{padding:10px 14px}
+  .livro{gap:14px;margin:14px auto;padding:0 10px}
+  .pagina{min-height:920px;padding:36px 25px 28px}
+  .pagina::before{left:25px;right:25px}
+  .pagina-cab{font-size:.58rem}
+  .arte{height:180px}
+  .capa .pagina-cab{top:34px;left:25px;right:25px}
+  .capa .pagina-rodape{right:25px;bottom:26px;left:25px}
+  .indice{grid-template-columns:1fr}
+  .grade{grid-template-columns:1fr 1fr}
+  .sinais{grid-template-columns:1fr}
+  .ciclo{gap:5px}
+  .ciclo div{padding:9px 4px;font-size:.82rem}
+  .glossario{grid-template-columns:1fr}
+}
+@page{size:A4 portrait;margin:0}
+@media print{
+  html,body{width:210mm;margin:0;background:#fff}
+  body{font-size:10pt;line-height:1.48;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .barra{display:none}
+  .livro{display:block;width:210mm;max-width:none;margin:0;padding:0}
+  .pagina{width:210mm;height:297mm;min-height:0;margin:0;padding:16mm 18mm 13mm;box-shadow:none;break-after:page;page-break-after:always}
+  .pagina:last-child{break-after:auto;page-break-after:auto}
+  .pagina::before{left:18mm;right:18mm}
+  .pagina-cab{font-size:7pt}
+  .pagina h1,.pagina h2{font-size:25pt}
+  .pagina h3{font-size:11pt}
+  .pagina p{margin-bottom:8px}
+  .pagina ul,.pagina ol{margin:4px 0 9px}
+  .pagina li{margin:3px 0}
+  .arte{height:48mm;margin:3mm 0 4mm}
+  .capa .pagina-cab{top:16mm;left:18mm;right:18mm}
+  .capa .arte{height:75mm}
+  .capa h1{font-size:42pt}
+  .capa .pagina-rodape{right:18mm;bottom:12mm;left:18mm}
+  .pagina-rodape{padding-top:3mm;font-size:7pt}
+  .grade{gap:6px}
+  .grade div,.sinais div,.glossario div{padding:7px}
+  .contracapa .pagina-rodape{position:absolute;right:18mm;bottom:12mm;left:18mm}
+}
+</style>
+</head>
+<body>
+<nav class="barra" aria-label="Controles do e-book">
+  <a href="index.html">← Astros e Você</a>
+  <span>E-book ilustrado · 30 páginas</span>
+  <button type="button" onclick="window.print()">Salvar como PDF</button>
+</nav>
+<main class="livro" aria-label="E-book Seu céu, em palavras, com 30 páginas">
+
+<article class="pagina capa" id="pagina-1">
+  <div class="pagina-cab"><span>Astros e Você</span><span class="marca-pagina">Guia ilustrado</span></div>
+  <svg class="arte" viewBox="0 0 400 300" role="img" aria-label="Um planeta dourado no centro de órbitas e estrelas">
+    <defs><radialGradient id="luz-capa"><stop stop-color="#F8D982" stop-opacity=".85"/><stop offset="1" stop-color="#F8D982" stop-opacity="0"/></radialGradient><linearGradient id="planeta-capa" x2=".8" y2="1"><stop stop-color="#FFF1C8"/><stop offset=".55" stop-color="#D6A75F"/><stop offset="1" stop-color="#8C6170"/></linearGradient></defs>
+    <circle cx="200" cy="145" r="115" fill="url(#luz-capa)"/><g class="fina"><ellipse cx="200" cy="145" rx="150" ry="55" transform="rotate(-25 200 145)"/><ellipse cx="200" cy="145" rx="112" ry="90" transform="rotate(32 200 145)"/><ellipse cx="200" cy="145" rx="74" ry="126" transform="rotate(-12 200 145)"/></g>
+    <circle cx="200" cy="145" r="33" fill="url(#planeta-capa)"/><circle class="dourado" cx="105" cy="93" r="5"/><circle class="estrela" cx="303" cy="190" r="6"/><path class="dourado" d="m306 65 6 13 14 2-10 9 3 14-13-7-12 7 3-14-10-9 14-2Z"/>
+    <g class="estrela"><circle cx="63" cy="155" r="2"/><circle cx="340" cy="119" r="2"/><circle cx="157" cy="39" r="2"/></g>
+  </svg>
+  <h1>Seu céu,<span>em palavras</span></h1>
+  <p class="abertura">Um guia acolhedor para explorar os símbolos do mapa astral com curiosidade, contexto e liberdade.</p>
+  <div class="pagina-rodape"><span>Para ler sem pressa</span><span>01 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-2">
+  <div class="pagina-cab"><span>Antes de começar</span><span class="marca-pagina">Um convite</span></div>
+  <h2>Uma viagem de curiosidade</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Trilha de estrelas ligando três pequenas constelações">
+    <path class="linha" d="M66 150 151 94l93 48 106-77 94 66 127-60"/><g class="dourado"><circle cx="66" cy="150" r="7"/><circle cx="244" cy="142" r="7"/><circle cx="350" cy="65" r="7"/><circle cx="444" cy="131" r="7"/><circle cx="571" cy="71" r="7"/></g><g class="estrela"><circle cx="151" cy="94" r="3"/><circle cx="483" cy="93" r="3"/><circle cx="102" cy="63" r="2"/><circle cx="535" cy="165" r="2"/></g><text class="texto-arte" x="320" y="195" text-anchor="middle">PERGUNTAR · OBSERVAR · ESCOLHER</text>
+  </svg>
+  <p class="abertura">Este livro apresenta a astrologia como uma linguagem simbólica e cultural. Não é um teste, uma previsão garantida ou uma definição de quem você é.</p>
+  <p>Leia os significados como possibilidades para pensar sobre si. Se uma ideia não combina com a sua experiência, você pode deixá-la de lado. Sua vida é maior do que qualquer mapa.</p>
+  <div class="nota"><strong>Nota de cuidado:</strong> este material é educativo e não substitui aconselhamento médico, psicológico, jurídico ou financeiro.</div>
+  <div class="pagina-rodape"><span>Seu céu, em palavras</span><span>02 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-3">
+  <div class="pagina-cab"><span>Roteiro de leitura</span><span class="marca-pagina">Índice</span></div>
+  <h2>O caminho pelas páginas</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Doze pontos conectados em uma roda celeste">
+    <circle cx="320" cy="108" r="77" class="linha"/><circle cx="320" cy="108" r="48" class="fina"/><circle cx="320" cy="108" r="8" class="dourado"/>
+    <g class="dourado"><circle cx="320" cy="31" r="5"/><circle cx="359" cy="41" r="5"/><circle cx="387" cy="69" r="5"/><circle cx="397" cy="108" r="5"/><circle cx="387" cy="147" r="5"/><circle cx="359" cy="175" r="5"/><circle cx="320" cy="185" r="5"/><circle cx="281" cy="175" r="5"/><circle cx="253" cy="147" r="5"/><circle cx="243" cy="108" r="5"/><circle cx="253" cy="69" r="5"/><circle cx="281" cy="41" r="5"/></g>
+    <path class="fina" d="M320 31v77m77 0h-77m-54-54 54 54m54-54-54 54M320 185v-77m-77 0h77"/>
+  </svg>
+  <nav class="indice" aria-label="Índice do e-book">
+    <a href="#pagina-4">Mapa e nascimento <b>04–06</b></a><a href="#pagina-7">Sol, Lua e Ascendente <b>07–10</b></a>
+    <a href="#pagina-11">Planetas pessoais <b>11–14</b></a><a href="#pagina-15">Planetas de ciclo longo <b>15–17</b></a>
+    <a href="#pagina-18">Signos e elementos <b>18–22</b></a><a href="#pagina-23">Casas e aspectos <b>23–24</b></a>
+    <a href="#pagina-25">Como fazer uma leitura <b>25–27</b></a><a href="#pagina-28">Glossário e perguntas <b>28–29</b></a>
+  </nav>
+  <p>Use este índice como mapa: você pode ler em ordem ou escolher o assunto que despertou sua curiosidade.</p>
+  <div class="pagina-rodape"><span>Roteiro</span><span>03 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-4">
+  <div class="pagina-cab"><span>01 · O mapa</span><span class="marca-pagina">Um retrato simbólico</span></div>
+  <h2>O que é um mapa astral?</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Roda zodiacal com planetas distribuídos ao redor">
+    <circle cx="320" cy="108" r="88" class="linha"/><circle cx="320" cy="108" r="58" class="fina"/><circle cx="320" cy="108" r="17" class="dourado"/>
+    <path class="fina" d="M320 20v30m44-18-15 26m53 13-27 15m33 22h-30m13 44-27-15m-15 53-11-28m-18 33v-30m-44 18 15-26m-53-13 27-15m-33-22h30m-13-44 27 15m15-53 11 28"/>
+    <g class="estrela"><circle cx="272" cy="73" r="5"/><circle cx="376" cy="90" r="5"/><circle cx="291" cy="154" r="4"/></g>
+    <text class="texto-arte" x="470" y="95">CÉU · DATA</text><text class="texto-arte" x="470" y="119">HORA · LUGAR</text>
+  </svg>
+  <p>Na astrologia, o mapa natal é um desenho simbólico do céu para um instante e um local. A data, a hora e a cidade ajudam a calcular onde aparecem os planetas e outros pontos.</p>
+  <p>É parecido com uma fotografia circular: os símbolos ficam organizados em um zodíaco e podem ser interpretados em conjunto. O desenho não é uma sentença nem uma avaliação científica da pessoa.</p>
+  <div class="nota">Pense no mapa como uma linguagem de perguntas, não como uma resposta pronta sobre sua vida.</div>
+  <div class="pagina-rodape"><span>O mapa</span><span>04 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-5">
+  <div class="pagina-cab"><span>01 · O mapa</span><span class="marca-pagina">Dados de nascimento</span></div>
+  <h2>Por que hora e lugar importam?</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Relógio solar, horizonte e mapa unidos por uma linha">
+    <circle cx="131" cy="105" r="48" class="linha"/><path class="fina" d="M131 65v40l27 17m-52-83v15m50 0-10 13m-53 0 10 13"/><circle cx="131" cy="105" r="5" class="dourado"/>
+    <path class="linha" d="M231 145h174m-154 0a67 67 0 0 1 134 0m-106 0a39 39 0 0 1 78 0"/><circle cx="318" cy="106" r="13" class="dourado"/>
+    <path class="linha" d="m438 136 33-34 34 34 32-48 38 48"/><path class="fina" d="M430 150h164"/><circle cx="471" cy="102" r="4" class="estrela"/><circle cx="505" cy="136" r="4" class="estrela"/>
+    <text class="texto-arte" x="131" y="188" text-anchor="middle">HORA</text><text class="texto-arte" x="318" y="188" text-anchor="middle">HORIZONTE</text><text class="texto-arte" x="532" y="188" text-anchor="middle">LOCAL</text>
+  </svg>
+  <p>O horário e a localização mudam o horizonte e a divisão das casas do mapa. Por isso, o Ascendente é especialmente sensível à precisão da hora e do local.</p>
+  <p>Se o horário for aproximado, trate posições dependentes dele com cautela. Um registro de nascimento pode ajudar, mas não precisa transformar a leitura em uma busca por perfeição.</p>
+  <div class="nota">A incerteza dos dados não diz nada sobre o valor de uma pessoa; apenas limita alguns cálculos.</div>
+  <div class="pagina-rodape"><span>O mapa</span><span>05 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-6">
+  <div class="pagina-cab"><span>01 · O mapa</span><span class="marca-pagina">O zodíaco</span></div>
+  <h2>Doze signos em uma roda</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Roda dividida em doze setores com pequenos símbolos">
+    <circle cx="320" cy="108" r="83" class="linha"/><circle cx="320" cy="108" r="55" class="fina"/><circle cx="320" cy="108" r="24" fill="#26365C" stroke="#E9DAB9"/>
+    <g class="fina"><path d="M320 25v59m42-48-21 52m52-21-52 21m62 20h-59m48 42-52-21m21 52-21-52m-30 62v-59m-42 48 21-52m-52 21 52-21m-62-20h59m-48-42 52 21m-21-52 21 52"/></g>
+    <g class="dourado"><circle cx="320" cy="25" r="4"/><circle cx="362" cy="36" r="4"/><circle cx="393" cy="67" r="4"/><circle cx="403" cy="108" r="4"/><circle cx="393" cy="149" r="4"/><circle cx="362" cy="180" r="4"/><circle cx="320" cy="191" r="4"/><circle cx="278" cy="180" r="4"/><circle cx="247" cy="149" r="4"/><circle cx="237" cy="108" r="4"/><circle cx="247" cy="67" r="4"/><circle cx="278" cy="36" r="4"/></g>
+    <text class="texto-arte" x="463" y="105">12 SIGNOS</text>
+  </svg>
+  <p>O zodíaco tropical divide a faixa simbólica do céu em doze partes iguais. Cada signo corresponde a 30 graus da roda; as datas populares são aproximações e podem variar um pouco.</p>
+  <p>Um planeta em um signo descreve uma combinação simbólica: o planeta sugere um tema e o signo, um estilo. A posição isolada é apenas uma peça do conjunto.</p>
+  <div class="pagina-rodape"><span>O mapa</span><span>06 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-7">
+  <div class="pagina-cab"><span>02 · Três pontos</span><span class="marca-pagina">Visão geral</span></div>
+  <h2>Sol, Lua e Ascendente</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Sol, Lua crescente e horizonte representados lado a lado">
+    <circle cx="139" cy="99" r="35" class="dourado"/><g class="linha"><path d="M139 43v-15m0 142v-15m56-56h15M68 99H53m126-40 11-11m-101 101-11 11m101 0-11-11M79 58 68 47"/></g>
+    <path d="M302 59a53 53 0 1 0 72 79 46 46 0 0 1-72-79Z" fill="#E9DAB9"/><circle cx="383" cy="61" r="4" class="estrela"/>
+    <path class="linha" d="M468 138h128m-108 0a44 44 0 0 1 88 0m-66 0a22 22 0 0 1 44 0"/><path class="fina" d="M485 93v-17m96 62v-32"/>
+    <text class="texto-arte" x="139" y="188" text-anchor="middle">SOL</text><text class="texto-arte" x="337" y="188" text-anchor="middle">LUA</text><text class="texto-arte" x="532" y="188" text-anchor="middle">HORIZONTE</text>
+  </svg>
+  <div class="grade"><div><b>Sol</b><span>Expressão e vitalidade.</span></div><div><b>Lua</b><span>Necessidades e acolhimento.</span></div><div><b>Ascendente</b><span>Começos e perspectiva.</span></div></div>
+  <p>Esses três pontos são uma porta de entrada, não a leitura inteira. Eles não precisam “combinar” perfeitamente; podem representar temas diferentes que coexistem.</p>
+  <div class="pagina-rodape"><span>Três pontos</span><span>07 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-8">
+  <div class="pagina-cab"><span>02 · Três pontos</span><span class="marca-pagina">O Sol</span></div>
+  <h2>O Sol: presença e expressão</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Sol dourado surgindo atrás de montanhas">
+    <circle cx="442" cy="102" r="52" fill="#F5B93A"/><circle cx="442" cy="102" r="78" fill="none" stroke="#F5B93A" stroke-opacity=".22" stroke-width="2"/>
+    <path d="M0 160 112 74l93 78 111-100 89 87 95-58 140 86v53H0Z" fill="#354566"/><path d="m112 74 28 24-28-8-12 16-18-16m234-38 30 35-27-13-18 17-11-19m193-1 26 22-29-8-15 11" fill="#E4D9C6"/>
+    <path d="M0 181q90-22 180 0t180 0 280 0" class="linha"/>
+    <text class="texto-arte" x="442" y="203" text-anchor="middle">VITALIDADE · DIREÇÃO</text>
+  </svg>
+  <p>Na tradição astrológica, o Sol é associado à vitalidade, à identidade e ao modo de expressar uma direção própria. O signo solar é a posição mais conhecida, mas não resume o mapa.</p>
+  <p>Em vez de tomar uma descrição como rótulo, pergunte: o que me dá energia? Em quais atividades sinto que estou participando de verdade?</p>
+  <div class="nota">O Sol não é uma obrigação de “brilhar” o tempo todo. Descanso, mudança e contradições também fazem parte da vida.</div>
+  <div class="pagina-rodape"><span>Três pontos</span><span>08 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-9">
+  <div class="pagina-cab"><span>02 · Três pontos</span><span class="marca-pagina">A Lua</span></div>
+  <h2>A Lua: ritmos e cuidado</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Lua crescente refletida em água tranquila">
+    <path d="M260 34a65 65 0 1 0 88 95 56 56 0 0 1-88-95Z" fill="#F0E7CD"/><circle cx="384" cy="57" r="4" class="dourado"/><circle cx="411" cy="89" r="2" class="estrela"/>
+    <path d="M0 135q80-24 160 0t160 0 160 0 160 0v85H0Z" fill="#293957"/><path d="M285 143q43-18 86 0t86 0m-240 24q66-12 132 0t132 0M78 198q74-14 148 0t148 0 188 0" class="fina"/>
+    <path d="M317 136v60m-26-44h52m-70 27h88" stroke="#E9DAB9" stroke-opacity=".65" stroke-width="3"/>
+    <text class="texto-arte" x="320" y="212" text-anchor="middle">RITMO · NECESSIDADE · ACOLHIMENTO</text>
+  </svg>
+  <p>A Lua costuma representar hábitos, memória afetiva e necessidades emocionais. O signo lunar pode ser usado como ponto de partida para notar o que transmite segurança e como você busca acolhimento.</p>
+  <p>Observe a diferença entre precisar de descanso e evitar algo importante. Não existe uma única rotina que funcione para todas as pessoas.</p>
+  <div class="nota">Pergunta para anotar: que pequenos gestos ajudam meu corpo e minha mente a desacelerar?</div>
+  <div class="pagina-rodape"><span>Três pontos</span><span>09 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-10">
+  <div class="pagina-cab"><span>02 · Três pontos</span><span class="marca-pagina">O Ascendente</span></div>
+  <h2>Ascendente: o horizonte que nascia</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Horizonte com um planeta subindo entre arcos">
+    <path d="M105 175a215 215 0 0 1 430 0m-175 0a40 40 0 0 1 80 0m-121 0a121 121 0 0 1 242 0" class="fina"/>
+    <path d="M0 165h640" stroke="#E9DAB9" stroke-width="2"/><circle cx="390" cy="127" r="34" fill="#D99A79"/><ellipse cx="390" cy="128" rx="65" ry="17" transform="rotate(-13 390 128)" fill="none" stroke="#F5D99C" stroke-width="5"/>
+    <path d="m59 165 47-42 31 30 39-52 49 64m227 0 32-35 33 35 46-55 43 55" fill="#354566"/>
+    <text class="texto-arte" x="320" y="202" text-anchor="middle">UM COMEÇO · NÃO UMA DEFINIÇÃO</text>
+  </svg>
+  <p>O Ascendente é o signo que surgia no horizonte leste no lugar e horário considerados. Na astrologia, é associado a começos, perspectiva e primeira impressão.</p>
+  <p>Como depende de hora e localização, uma hora imprecisa pode alterar o resultado. Ele não define toda a aparência, o caráter ou o futuro de ninguém.</p>
+  <div class="nota">Se o horário é incerto, trate essa parte do mapa como hipótese, não como certeza.</div>
+  <div class="pagina-rodape"><span>Três pontos</span><span>10 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-11">
+  <div class="pagina-cab"><span>03 · Planetas pessoais</span><span class="marca-pagina">Mercúrio</span></div>
+  <h2>Mercúrio: ideias em movimento</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Pequeno planeta e linhas que lembram conversa e pensamento">
+    <circle cx="150" cy="112" r="38" fill="#B8AAA1"/><path d="M125 99q24-18 49 0m-45 24q22 15 43 0" class="fina"/>
+    <path class="linha" d="M229 73h108a25 25 0 0 1 0 50h-38l-24 21v-21h-46a25 25 0 0 1 0-50Z"/>
+    <circle cx="256" cy="98" r="4" class="dourado"/><circle cx="283" cy="98" r="4" class="dourado"/><circle cx="310" cy="98" r="4" class="dourado"/>
+    <path class="fina" d="M390 75h150M390 106h118M390 137h138"/>
+    <text class="texto-arte" x="320" y="190" text-anchor="middle">ESCUTA · LINGUAGEM · CURIOSIDADE</text>
+  </svg>
+  <p>Mercúrio é associado à comunicação, à curiosidade e às maneiras de organizar informações. O signo em que aparece pode sugerir um estilo de troca de ideias, não uma medida de inteligência.</p>
+  <h3>Experimente observar</h3><p>Você pensa melhor conversando, escrevendo, desenhando ou ficando em silêncio? Como muda seu jeito de explicar algo conforme a pessoa que escuta?</p>
+  <div class="pagina-rodape"><span>Planetas pessoais</span><span>11 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-12">
+  <div class="pagina-cab"><span>03 · Planetas pessoais</span><span class="marca-pagina">Vênus</span></div>
+  <h2>Vênus: valores e vínculos</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Vênus brilhando acima de duas flores">
+    <circle cx="322" cy="91" r="36" fill="#E8C993"/><circle cx="322" cy="91" r="57" fill="none" stroke="#F1DDB1" stroke-opacity=".45" stroke-width="2"/>
+    <path d="M320 128v49m0-23-33-20m33 32 34-28" class="linha"/><g fill="#D99A9A"><circle cx="282" cy="132" r="13"/><circle cx="296" cy="117" r="13"/><circle cx="308" cy="134" r="13"/><circle cx="343" cy="130" r="13"/><circle cx="357" cy="117" r="13"/><circle cx="368" cy="134" r="13"/></g>
+    <circle cx="296" cy="131" r="6" class="dourado"/><circle cx="356" cy="130" r="6" class="dourado"/>
+    <text class="texto-arte" x="320" y="205" text-anchor="middle">AFETO · PRAZER · VALORES</text>
+  </svg>
+  <p>Vênus simboliza, em muitas leituras, afeto, prazer, preferências e valores. Não é um medidor de beleza nem uma fórmula para prever relacionamentos.</p>
+  <p>Pense no que você aprecia de verdade: que atividades, gestos e ambientes fazem você se sentir em sintonia? O que aprendeu a valorizar por escolha própria?</p>
+  <div class="nota">Vínculos saudáveis também dependem de respeito, comunicação, limites e circunstâncias concretas.</div>
+  <div class="pagina-rodape"><span>Planetas pessoais</span><span>12 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-13">
+  <div class="pagina-cab"><span>03 · Planetas pessoais</span><span class="marca-pagina">Marte</span></div>
+  <h2>Marte: impulso e ação</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Marte em uma órbita com uma seta voltada para a frente">
+    <circle cx="273" cy="117" r="57" fill="#B96752"/><path d="M243 100q31-19 60 0m-54 33q26 16 51-1" stroke="#F1B28C" stroke-opacity=".65" stroke-width="6" fill="none"/>
+    <ellipse cx="273" cy="117" rx="115" ry="43" transform="rotate(-20 273 117)" fill="none" stroke="#E9DAB9" stroke-opacity=".6" stroke-width="2"/>
+    <path d="m344 73 83-47m-31 0h31v31" fill="none" stroke="#F5B93A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="fina" d="M68 176h120m-120-18h74m257 27h118"/>
+    <text class="texto-arte" x="320" y="207" text-anchor="middle">ENERGIA · CORAGEM · LIMITE</text>
+  </svg>
+  <p>Marte é associado à iniciativa, ao desejo e à forma de enfrentar desafios. Sua energia não precisa significar conflito: pode aparecer como persistência, defesa de limites ou coragem de começar.</p>
+  <p>Vale perguntar: quando ajo com intenção? O que me ajuda a pausar antes de reagir? Que tipo de esforço merece minha energia agora?</p>
+  <div class="pagina-rodape"><span>Planetas pessoais</span><span>13 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-14">
+  <div class="pagina-cab"><span>03 · Planetas pessoais</span><span class="marca-pagina">Um trio em conversa</span></div>
+  <h2>Mercúrio, Vênus e Marte</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Três planetas ligados por linhas de conversa">
+    <circle cx="133" cy="103" r="34" fill="#B8AAA1"/><circle cx="320" cy="103" r="34" fill="#E8C993"/><circle cx="507" cy="103" r="34" fill="#B96752"/>
+    <path class="linha" d="M169 103h112m78 0h112"/><path class="fina" d="M228 83q18-20 36 0m148 0q18-20 36 0"/>
+    <text class="texto-arte" x="133" y="170" text-anchor="middle">PENSAR</text><text class="texto-arte" x="320" y="170" text-anchor="middle">VALORIZAR</text><text class="texto-arte" x="507" y="170" text-anchor="middle">AGIR</text>
+  </svg>
+  <p>Uma leitura simbólica pode comparar essas três funções: como você pensa e conversa, o que valoriza e como transforma intenção em ação.</p>
+  <p>Elas não precisam coincidir. É possível desejar uma coisa, pensar outra e agir de um terceiro modo; perceber a diferença pode ser mais útil do que procurar uma interpretação perfeita.</p>
+  <div class="nota">Use esta combinação como exercício de observação, não como diagnóstico do seu estilo afetivo.</div>
+  <div class="pagina-rodape"><span>Planetas pessoais</span><span>14 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-15">
+  <div class="pagina-cab"><span>04 · Ciclos mais longos</span><span class="marca-pagina">Júpiter</span></div>
+  <h2>Júpiter: ampliar horizontes</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Júpiter listrado ao lado de uma estrada que sobe até as estrelas">
+    <circle cx="175" cy="111" r="67" fill="#D49A68"/><path d="M111 91q64 20 128 0m-119 46q55-18 110 0m-107-73q52 17 104 0" fill="none" stroke="#895D53" stroke-width="9"/><ellipse cx="195" cy="127" rx="13" ry="8" fill="#B65E4C"/>
+    <path class="linha" d="M307 187 384 113 441 82 542 39m-235 148 72-52 62-23 96-45"/>
+    <g class="estrela"><circle cx="384" cy="113" r="4"/><circle cx="441" cy="82" r="4"/><circle cx="542" cy="39" r="5"/><circle cx="497" cy="130" r="2"/><circle cx="571" cy="86" r="2"/></g>
+    <text class="texto-arte" x="320" y="208" text-anchor="middle">APRENDER · EXPLORAR · EXPANDIR</text>
+  </svg>
+  <p>Júpiter é associado a expansão, aprendizado, confiança e busca de sentido. Crescer pode ser estudar, viajar, fazer perguntas ou rever uma certeza antiga.</p>
+  <p>Expansão sem cuidado pode virar exagero. Que oportunidade combina com seus recursos e compromissos reais?</p>
+  <div class="pagina-rodape"><span>Ciclos mais longos</span><span>15 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-16">
+  <div class="pagina-cab"><span>04 · Ciclos mais longos</span><span class="marca-pagina">Saturno</span></div>
+  <h2>Saturno: tempo e construção</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Saturno com anéis sobre degraus que levam a uma estrela">
+    <circle cx="185" cy="101" r="49" fill="#D4BD91"/><ellipse cx="185" cy="101" rx="92" ry="23" transform="rotate(-15 185 101)" fill="none" stroke="#F0D8A5" stroke-width="9"/><ellipse cx="185" cy="101" rx="92" ry="23" transform="rotate(-15 185 101)" fill="none" stroke="#8A775D" stroke-width="2"/>
+    <path d="M303 179h48v-24h48v-24h48v-24h48" fill="none" stroke="#E9DAB9" stroke-width="5" stroke-linejoin="round"/>
+    <path d="m545 67 8 17 18 2-14 12 4 18-16-9-16 9 4-18-14-12 18-2Z" class="dourado"/>
+    <text class="texto-arte" x="320" y="207" text-anchor="middle">ESTRUTURA · LIMITE · MATURIDADE</text>
+  </svg>
+  <p>Saturno costuma representar estrutura, responsabilidade, limites e o tempo necessário para construir algo. O tema não é punição: é perceber o que exige atenção constante.</p>
+  <p>Que compromisso é importante para você? O que pode ser simplificado? Em que parte da vida um limite claro protegeria sua energia?</p>
+  <div class="pagina-rodape"><span>Ciclos mais longos</span><span>16 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-17">
+  <div class="pagina-cab"><span>04 · Ciclos mais longos</span><span class="marca-pagina">Urano, Netuno e Plutão</span></div>
+  <h2>Temas de uma geração</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Três planetas distantes em órbitas amplas">
+    <ellipse cx="320" cy="111" rx="246" ry="70" class="fina"/><ellipse cx="320" cy="111" rx="174" ry="49" class="fina"/><ellipse cx="320" cy="111" rx="103" ry="29" class="fina"/>
+    <circle cx="121" cy="95" r="21" fill="#85D4D4"/><circle cx="465" cy="78" r="24" fill="#667FDA"/><circle cx="270" cy="139" r="27" fill="#9A6A88"/>
+    <path d="M95 95h52m-52-8h52m-52 16h52" stroke="#E8F7F4" stroke-width="2"/>
+    <path d="M445 81q20-16 40 0m-42 8q21-16 43 0" fill="none" stroke="#C9D7FF" stroke-width="3"/>
+    <circle cx="261" cy="132" r="4" fill="#D8A6B7"/><circle cx="278" cy="146" r="5" fill="#E6BAC7"/>
+    <text class="texto-arte" x="320" y="204" text-anchor="middle">MUDANÇA · IMAGINAÇÃO · TRANSFORMAÇÃO</text>
+  </svg>
+  <p>Urano, Netuno e Plutão percorrem o zodíaco devagar; muitas pessoas nascidas em anos próximos compartilham seu signo. Por isso, uma posição por signo pode descrever temas coletivos de uma geração.</p>
+  <p>Para uma leitura individual, astrólogos também consideram outros fatores. Evite interpretar uma posição lenta como se ela, sozinha, explicasse sua personalidade.</p>
+  <div class="pagina-rodape"><span>Ciclos mais longos</span><span>17 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-18">
+  <div class="pagina-cab"><span>05 · Signos e elementos</span><span class="marca-pagina">Quatro elementos</span></div>
+  <h2>Quatro formas de imaginar energia</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Chama, montanha, vento e onda em quatro medalhões">
+    <circle cx="100" cy="105" r="51" fill="#804A48"/><path d="M100 142q-37-22-9-59 3 23 19 24 12-22 4-35 42 46 9 68Z" fill="#F5B93A"/>
+    <circle cx="246" cy="105" r="51" fill="#4B6558"/><path d="m202 135 44-67 46 67m-71-21 25-16 28 24" fill="none" stroke="#D7E3C5" stroke-width="5"/>
+    <circle cx="392" cy="105" r="51" fill="#465B79"/><path d="M358 92h53q22 0 0 19h-35q-22 0 0 19h44" fill="none" stroke="#D9E7F5" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="538" cy="105" r="51" fill="#49516F"/><path d="M498 100q20-21 40 0t40 0m-80 19q20-21 40 0t40 0" fill="none" stroke="#C9D8F3" stroke-width="5"/>
+    <text class="texto-arte" x="100" y="184" text-anchor="middle">FOGO</text><text class="texto-arte" x="246" y="184" text-anchor="middle">TERRA</text><text class="texto-arte" x="392" y="184" text-anchor="middle">AR</text><text class="texto-arte" x="538" y="184" text-anchor="middle">ÁGUA</text>
+  </svg>
+  <div class="grade"><div><b>Fogo</b><span>entusiasmo e expressão</span></div><div><b>Terra</b><span>concretude e continuidade</span></div><div><b>Ar</b><span>ideias e diálogo</span></div><div><b>Água</b><span>sensibilidade e imaginação</span></div></div>
+  <p>Os elementos são uma classificação tradicional. Não definem capacidades nem medem quanto alguém sente, pensa ou realiza.</p>
+  <div class="pagina-rodape"><span>Signos e elementos</span><span>18 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-19">
+  <div class="pagina-cab"><span>05 · Signos e elementos</span><span class="marca-pagina">Fogo</span></div>
+  <h2>Fogo: iniciar e expressar</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Chama dourada protegida por um círculo de estrelas">
+    <circle cx="320" cy="108" r="84" fill="none" stroke="#F5B93A" stroke-opacity=".45" stroke-width="2"/>
+    <path d="M320 171q-77-41-19-111 2 39 31 43 26-35 5-65 82 83 21 132-16 12-38 1Z" fill="#F5B93A"/>
+    <path d="M320 158q-33-18-8-52 7 20 20 19 15-20 5-34 40 44 10 67-12 8-27 0Z" fill="#FFF2C8"/>
+    <g class="estrela"><path d="m191 82 4 9 9 4-9 4-4 9-4-9-9-4 9-4Z"/><path d="m445 116 4 9 9 4-9 4-4 9-4-9-9-4 9-4Z"/></g>
+    <text class="texto-arte" x="320" y="208" text-anchor="middle">ÁRIES · LEÃO · SAGITÁRIO</text>
+  </svg>
+  <p>Áries, Leão e Sagitário pertencem ao elemento Fogo. A tradição os aproxima por entusiasmo, espontaneidade e expressão, mas cada signo tem modalidade e regências próprias.</p>
+  <p>Como reflexão, pergunte: onde a iniciativa me ajuda? Quando a pressa ou a necessidade de reconhecimento pede uma pausa?</p>
+  <div class="pagina-rodape"><span>Signos e elementos</span><span>19 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-20">
+  <div class="pagina-cab"><span>05 · Signos e elementos</span><span class="marca-pagina">Terra</span></div>
+  <h2>Terra: cuidar do que cresce</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Planta crescendo em camadas de solo sob estrelas">
+    <path d="M0 153q87-31 174 0t174 0 292 0v67H0Z" fill="#354F48"/><path d="M0 180q89-26 178 0t178 0 284 0" fill="none" stroke="#8B9B74" stroke-width="3"/>
+    <path d="M320 161V65m0 62q-60-15-64-65 54 4 64 50m0-24q46-47 83-29-17 42-83 48" fill="none" stroke="#D7E3C5" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="145" cy="66" r="3" class="estrela"/><circle cx="475" cy="69" r="3" class="estrela"/><circle cx="394" cy="42" r="2" class="estrela"/>
+    <text class="texto-arte" x="320" y="207" text-anchor="middle">TOURO · VIRGEM · CAPRICÓRNIO</text>
+  </svg>
+  <p>Touro, Virgem e Capricórnio são associados à Terra. A imagem de cultivar pode lembrar atenção aos recursos, ao corpo, à prática e ao tempo.</p>
+  <p>Não é sinônimo de ser sempre prático. Pergunte: que hábito sustenta algo importante para mim? O que precisa de manutenção, não de perfeição?</p>
+  <div class="pagina-rodape"><span>Signos e elementos</span><span>20 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-21">
+  <div class="pagina-cab"><span>05 · Signos e elementos</span><span class="marca-pagina">Ar</span></div>
+  <h2>Ar: ideias que circulam</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Linhas de vento passam por balões de diálogo">
+    <path d="M79 75h184q29 0 0 25H137q-32 0 0 25h78m153-58h180q31 0 0 24h-89q-31 0 0 25h97" fill="none" stroke="#D9E7F5" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="172" cy="157" r="5" class="dourado"/><circle cx="320" cy="157" r="5" class="estrela"/><circle cx="468" cy="157" r="5" class="dourado"/>
+    <path class="fina" d="M172 157h296"/>
+    <text class="texto-arte" x="320" y="205" text-anchor="middle">GÊMEOS · LIBRA · AQUÁRIO</text>
+  </svg>
+  <p>Gêmeos, Libra e Aquário são reunidos no elemento Ar. A tradição associa esse grupo a ideias, diálogo e perspectivas. Isso não significa ausência de emoção; todos os elementos fazem parte de um mapa.</p>
+  <p>Experimente perguntar: que conversa ampliou meu ponto de vista? Que informação estou assumindo sem conferir?</p>
+  <div class="pagina-rodape"><span>Signos e elementos</span><span>21 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-22">
+  <div class="pagina-cab"><span>05 · Signos e elementos</span><span class="marca-pagina">Água</span></div>
+  <h2>Água: sentir e imaginar</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Ondas e estrelas se refletem em uma lua sobre a água">
+    <path d="M0 124q46-31 92 0t92 0 92 0 92 0 92 0 92 0 88 0v96H0Z" fill="#354765"/>
+    <path d="M0 144q46-25 92 0t92 0 92 0 92 0 92 0 92 0 88 0m-640 31q46-19 92 0t92 0 92 0 92 0 92 0 92 0 88 0m-640 29q46-14 92 0t92 0 92 0 92 0 92 0 92 0 88 0" fill="none" stroke="#C9D8F3" stroke-opacity=".75" stroke-width="3"/>
+    <path d="M298 33a39 39 0 1 0 54 58 34 34 0 0 1-54-58Z" fill="#F0E7CD"/><circle cx="386" cy="53" r="4" class="dourado"/>
+    <text class="texto-arte" x="320" y="208" text-anchor="middle">CÂNCER · ESCORPIÃO · PEIXES</text>
+  </svg>
+  <p>Câncer, Escorpião e Peixes são associados à Água. A tradição aproxima esses signos de sensibilidade, vínculo e imaginação — sem afirmar que todos sentem do mesmo jeito.</p>
+  <p>O que ajuda você a nomear uma emoção? Como escuta outra pessoa sem assumir que já sabe o que ela sente?</p>
+  <div class="pagina-rodape"><span>Signos e elementos</span><span>22 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-23">
+  <div class="pagina-cab"><span>06 · Outras peças</span><span class="marca-pagina">Casas</span></div>
+  <h2>Casas: setores da roda</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Mapa circular dividido em doze casas">
+    <circle cx="320" cy="107" r="84" class="linha"/><circle cx="320" cy="107" r="49" class="fina"/>
+    <g class="fina"><path d="M320 23v35m42-24-17 32m59-11-30 23m64 29h-35m24 42-32-17m11 59-23-30m-23 64v-35m-42 24 17-32m-59 11 30-23m-64-29h35m-24-42 32 17m-11-59 23 30"/></g>
+    <text class="texto-arte" x="470" y="86">12 SETORES</text><text class="texto-arte" x="470" y="110">DO MAPA</text>
+  </svg>
+  <p>As casas dividem o mapa em setores associados, por diferentes escolas, a áreas da experiência. A forma de calculá-las depende do horário, da localização e do sistema escolhido.</p>
+  <p>Esta edição introdutória não interpreta casas específicas: elas exigem contexto e cálculo consistente. Um número isolado não descreve uma área da vida por completo.</p>
+  <div class="nota">Se comparar mapas, confira se o mesmo sistema de casas foi usado.</div>
+  <div class="pagina-rodape"><span>Outras peças</span><span>23 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-24">
+  <div class="pagina-cab"><span>06 · Outras peças</span><span class="marca-pagina">Aspectos</span></div>
+  <h2>Aspectos: relações entre pontos</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Pontos planetários conectados por linhas de diferentes cores">
+    <circle cx="165" cy="72" r="12" class="dourado"/><circle cx="320" cy="158" r="12" fill="#D8D6ED"/><circle cx="475" cy="72" r="12" fill="#D99A79"/>
+    <path d="M176 78 309 151m22 0L464 78M177 72h286" fill="none" stroke="#E9DAB9" stroke-width="3"/>
+    <path d="m245 108 20-8m110 8 20-8" stroke="#F5B93A" stroke-width="5" stroke-linecap="round"/>
+    <text class="texto-arte" x="165" y="112" text-anchor="middle">PONTO A</text><text class="texto-arte" x="320" y="198" text-anchor="middle">PONTO B</text><text class="texto-arte" x="475" y="112" text-anchor="middle">PONTO C</text>
+  </svg>
+  <p>Aspectos são relações angulares entre planetas ou pontos. Astrólogos interpretam essas relações como diálogos ou tensões simbólicas; há diferentes métodos para definir quais ângulos considerar.</p>
+  <p>Uma tensão não é necessariamente algo ruim, e uma facilidade não garante resultado. A vida concreta e as escolhas importam.</p>
+  <div class="nota">Sem o mapa completo e um método declarado, evite concluir algo sobre um aspecto isolado.</div>
+  <div class="pagina-rodape"><span>Outras peças</span><span>24 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-25">
+  <div class="pagina-cab"><span>07 · Ler com contexto</span><span class="marca-pagina">Juntar peças</span></div>
+  <h2>Uma sequência simples de leitura</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Quatro passos conectados formam um caminho">
+    <path d="M92 112h456" stroke="#E9DAB9" stroke-width="3"/>
+    <g><circle cx="105" cy="112" r="30" fill="#26365C" stroke="#E9DAB9" stroke-width="2"/><circle cx="248" cy="112" r="30" fill="#344B45" stroke="#E9DAB9" stroke-width="2"/><circle cx="391" cy="112" r="30" fill="#7B5D68" stroke="#E9DAB9" stroke-width="2"/><circle cx="535" cy="112" r="30" fill="#68716F" stroke="#E9DAB9" stroke-width="2"/></g>
+    <g fill="#FFF2C8" font-family="system-ui,sans-serif" font-size="18" font-weight="700" text-anchor="middle"><text x="105" y="119">1</text><text x="248" y="119">2</text><text x="391" y="119">3</text><text x="535" y="119">4</text></g>
+    <g class="texto-arte" text-anchor="middle"><text x="105" y="168">TEMA</text><text x="248" y="168">ESTILO</text><text x="391" y="168">CONTEXTO</text><text x="535" y="168">REFLEXÃO</text></g>
+  </svg>
+  <ol><li>Identifique o ponto e seu tema simbólico.</li><li>Observe o signo como um estilo tradicional.</li><li>Considere outras posições e os limites dos dados.</li><li>Compare a hipótese com sua experiência real.</li></ol>
+  <p>Uma leitura cuidadosa abre perguntas; não substitui a voz da pessoa por um rótulo.</p>
+  <div class="pagina-rodape"><span>Ler com contexto</span><span>25 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-26">
+  <div class="pagina-cab"><span>07 · Ler com contexto</span><span class="marca-pagina">Mitos comuns</span></div>
+  <h2>O mapa não é uma sentença</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Uma porta aberta para um céu amplo com estrelas">
+    <path d="M194 184V68a126 126 0 0 1 252 0v116" fill="none" stroke="#E9DAB9" stroke-width="5"/>
+    <path d="M225 184V72a95 95 0 0 1 190 0v112" fill="#26365C" stroke="#C7A66A" stroke-width="2"/>
+    <circle cx="320" cy="72" r="28" fill="#F5B93A"/><circle cx="282" cy="102" r="4" class="estrela"/><circle cx="360" cy="119" r="4" class="estrela"/>
+    <path d="M62 184h516" class="linha"/><path d="m265 184 55-53 55 53" fill="none" stroke="#E9DAB9" stroke-width="2"/>
+    <text class="texto-arte" x="320" y="210" text-anchor="middle">SÍMBOLO NÃO É DESTINO</text>
+  </svg>
+  <ul><li>Um signo não explica uma pessoa inteira.</li><li>Um mapa não prevê com certeza o que vai acontecer.</li><li>Um aspecto não diagnostica saúde ou comportamento.</li><li>Uma interpretação não deve limitar suas escolhas.</li></ul>
+  <p>A astrologia pode ser significativa como tradição, prática cultural ou reflexão pessoal. Isso não a transforma em ciência nem torna suas interpretações universais.</p>
+  <div class="pagina-rodape"><span>Ler com contexto</span><span>26 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-27">
+  <div class="pagina-cab"><span>08 · Prática pessoal</span><span class="marca-pagina">Caderno de reflexão</span></div>
+  <h2>Um exercício de cinco minutos</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Caderno aberto com uma estrela e linhas para escrita">
+    <path d="M95 59q105-30 225 8v109q-120-38-225-8Zm450 0q-105-30-225 8v109q120-38 225-8Z" fill="#F7F6F1" stroke="#E9DAB9" stroke-width="3"/>
+    <path d="M134 92h145m-145 24h135m-135 24h120m127-48h135m-135 24h125m-125 24h115" stroke="#A9B0C7" stroke-width="2"/>
+    <path d="m320 32 5 13 14 1-11 9 4 13-12-7-12 7 4-13-11-9 14-1Z" class="dourado"/>
+    <text class="texto-arte" x="320" y="205" text-anchor="middle">OBSERVE · ESCREVA · ESCOLHA</text>
+  </svg>
+  <ol><li>Escolha uma posição que desperte curiosidade.</li><li>Leia o significado como hipótese, não como regra.</li><li>Anote o que combina e o que não combina.</li><li>Registre um exemplo da sua vida.</li><li>Escolha uma ação pequena que faça sentido para você.</li></ol>
+  <div class="pagina-rodape"><span>Prática pessoal</span><span>27 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-28">
+  <div class="pagina-cab"><span>09 · Consulta rápida</span><span class="marca-pagina">Glossário</span></div>
+  <h2>Palavras do mapa</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Livro aberto sob uma constelação">
+    <path d="M115 113q92-30 205 8 113-38 205-8v68q-92-30-205 8-113-38-205-8Z" fill="#F7F6F1" stroke="#E9DAB9" stroke-width="3"/>
+    <path d="M320 121v68m-167-43 110 17m117-17 110-17" stroke="#A9B0C7" stroke-width="2"/>
+    <path d="m180 56 51-25 44 42 56-23 57 29 69-22" fill="none" stroke="#E9DAB9" stroke-width="2"/>
+    <g class="dourado"><circle cx="180" cy="56" r="4"/><circle cx="231" cy="31" r="4"/><circle cx="275" cy="73" r="4"/><circle cx="331" cy="50" r="4"/><circle cx="388" cy="79" r="4"/><circle cx="457" cy="57" r="4"/></g>
+  </svg>
+  <dl class="glossario">
+    <div><dt>Mapa natal</dt><dd>Representação simbólica do céu para data, hora e local.</dd></div>
+    <div><dt>Trânsito</dt><dd>Posição atual comparada com um mapa natal.</dd></div>
+    <div><dt>Aspecto</dt><dd>Ângulo entre dois pontos interpretado por uma tradição.</dd></div>
+    <div><dt>Casas</dt><dd>Setores do mapa associados a áreas de experiência.</dd></div>
+    <div><dt>Efemérides</dt><dd>Tabelas ou cálculos de posições celestes no tempo.</dd></div>
+    <div><dt>Zodíaco</dt><dd>Faixa simbólica dividida em doze signos.</dd></div>
+  </dl>
+  <div class="pagina-rodape"><span>Consulta rápida</span><span>28 / 30</span></div>
+</article>
+
+<article class="pagina" id="pagina-29">
+  <div class="pagina-cab"><span>09 · Consulta rápida</span><span class="marca-pagina">Perguntas frequentes</span></div>
+  <h2>Dúvidas para levar com você</h2>
+  <svg class="arte" viewBox="0 0 640 220" role="img" aria-label="Balão de pergunta entre estrelas">
+    <path d="M174 51h292a42 42 0 0 1 42 42v47a42 42 0 0 1-42 42H278l-57 28v-28h-47a42 42 0 0 1-42-42V93a42 42 0 0 1 42-42Z" fill="#F7F6F1" stroke="#E9DAB9" stroke-width="3"/>
+    <text x="320" y="145" text-anchor="middle" fill="#26365C" font-family="Georgia,serif" font-size="100">?</text>
+    <path d="m98 66 5 12 13 2-10 8 3 13-11-6-11 6 3-13-10-8 13-2Z" class="dourado"/>
+    <circle cx="539" cy="72" r="5" class="estrela"/><circle cx="528" cy="176" r="3" class="estrela"/>
+  </svg>
+  <h3>Preciso acreditar em tudo?</h3><p>Não. Você pode estudar a tradição sem aceitar cada interpretação como verdade.</p>
+  <h3>Um dado impreciso invalida o mapa?</h3><p>Não necessariamente, mas pode limitar pontos sensíveis ao horário, como o Ascendente.</p>
+  <h3>Posso mudar em relação ao meu signo?</h3><p>Claro. Signos são símbolos; pessoas aprendem, mudam e fazem escolhas.</p>
+  <div class="pagina-rodape"><span>Consulta rápida</span><span>29 / 30</span></div>
+</article>
+
+<article class="pagina contracapa" id="pagina-30">
+  <div class="pagina-cab"><span>Astros e Você</span><span class="marca-pagina">Fim da primeira viagem</span></div>
+  <svg class="arte" viewBox="0 0 400 300" role="img" aria-label="Uma pequena nave segue entre planetas rumo a uma estrela">
+    <defs><linearGradient id="ceu-final" x2="0" y2="1"><stop stop-color="#18234A"/><stop offset="1" stop-color="#66506F"/></linearGradient></defs>
+    <circle cx="200" cy="148" r="107" fill="url(#ceu-final)" stroke="#E9DAB9" stroke-opacity=".65" stroke-width="2"/>
+    <ellipse cx="200" cy="148" rx="145" ry="51" transform="rotate(-27 200 148)" fill="none" stroke="#E9DAB9" stroke-opacity=".45" stroke-width="2"/>
+    <circle cx="150" cy="174" r="23" fill="#D99A79"/><ellipse cx="150" cy="174" rx="43" ry="11" transform="rotate(-18 150 174)" fill="none" stroke="#E9DAB9" stroke-width="4"/>
+    <path d="m249 87 20-25 20 25-20 32Z" fill="#F5B93A" stroke="#FFF2C8" stroke-width="2"/><path d="m259 112-10 19m20-17v24m10-26 10 19" stroke="#F5B93A" stroke-width="3"/>
+    <g class="estrela"><circle cx="95" cy="101" r="3"/><circle cx="295" cy="154" r="3"/><circle cx="205" cy="58" r="2"/></g>
+  </svg>
+  <h2>O céu pode inspirar.<br>A escolha é sua.</h2>
+  <p class="abertura">Que este guia seja um convite a olhar para si com curiosidade, gentileza e liberdade. Leve o que fizer sentido; deixe o restante passar.</p>
+  <p class="abertura">Astrologia é apresentada aqui como tradição simbólica e entretenimento. Este material não substitui orientação profissional.</p>
+  <div class="pagina-rodape"><span>Texto e ilustrações originais</span><span>30 / 30</span></div>
+</article>
+
+</main>
+</body>
+</html>
