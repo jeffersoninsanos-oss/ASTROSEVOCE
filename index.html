@@ -69,8 +69,8 @@ td:first-child{font-weight:600}
 #cosmos{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
 .hero-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:14px;min-height:inherit;padding:48px 0 48px clamp(20px,6vw,88px);max-width:860px}
 .eyebrow{margin:0;color:var(--gold);letter-spacing:.35em;font-size:.74rem;font-weight:600;text-transform:uppercase}
-.hero .nome{margin:0;font:700 clamp(2rem,4.3vw,3.9rem)/1.25 Lora,Georgia,serif;color:#fff;letter-spacing:.03em;text-shadow:0 0 40px rgba(245,185,58,.5),0 4px 0 rgba(6,10,36,.6)}
-.hero .nome b{color:var(--gold)}
+.hero .nome{margin:0;font:700 clamp(2rem,4.3vw,3.9rem)/1.25 Lora,Georgia,serif;color:#fff;letter-spacing:.03em;text-shadow:0 0 40px rgba(245,185,58,.5),0 4px 0 rgba(6,10,36,.6);animation:pulso 4.5s ease-in-out infinite}
+.hero .nome b{background:linear-gradient(100deg,#E0A21F 30%,#FFF6CF 50%,#E0A21F 70%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;text-shadow:none;filter:drop-shadow(0 0 14px rgba(245,185,58,.7));animation:brilhar 3.2s linear infinite}
 .hero .sub{margin:0;color:#D9E0FF;max-width:32ch;font-size:clamp(1rem,1.6vw,1.2rem)}
 .cta{display:inline-block;margin-top:6px;padding:15px 26px;border-radius:999px;background:linear-gradient(180deg,#FFE08A,#F5B93A);color:#14163A;font-weight:700;text-decoration:none;box-shadow:0 0 0 2px rgba(255,255,255,.5) inset,0 10px 30px rgba(245,185,58,.4);transition:transform .2s,box-shadow .2s}
 .cta:hover{transform:translateY(-2px);box-shadow:0 0 0 2px rgba(255,255,255,.6) inset,0 14px 38px rgba(245,185,58,.55)}
@@ -108,6 +108,8 @@ td:first-child{font-weight:600}
 /* ===== EFEITOS NAS LETRAS ===== */
 .hero .nome{position:relative;display:inline-block;font-size:clamp(2.2rem,5.4vw,5rem)}
 .hero .eyebrow .sp{display:inline-block;width:.9em}
+@keyframes pulso{0%,100%{text-shadow:0 0 28px rgba(245,185,58,.45),0 4px 0 rgba(6,10,36,.6)}50%{text-shadow:0 0 56px rgba(245,185,58,.95),0 0 10px rgba(255,255,255,.75),0 4px 0 rgba(6,10,36,.6)}}
+@keyframes brilhar{from{background-position:200% 0}to{background-position:-100% 0}}
 .hero .eyebrow .l{display:inline-block;animation:letraS .6s ease backwards;animation-delay:calc(var(--i)*38ms + .05s)}
 @keyframes letraS{from{opacity:0;transform:translateY(.6em)}}
 .fag{position:absolute;color:#FFE9A8;font-style:normal;font-size:.3em;line-height:1;opacity:0;pointer-events:none;text-shadow:0 0 12px #F5B93A;animation:cintila 2.8s ease-in-out infinite;animation-delay:var(--d)}
@@ -116,7 +118,7 @@ td:first-child{font-weight:600}
 .cta{animation:sobe .9s ease 2s backwards,brilhoBtn 2.8s ease-in-out 3.2s infinite}
 @keyframes sobe{from{opacity:0;transform:translateY(16px)}}
 @keyframes brilhoBtn{0%,100%{box-shadow:0 0 0 2px rgba(255,255,255,.5) inset,0 10px 30px rgba(245,185,58,.4)}50%{box-shadow:0 0 0 2px rgba(255,255,255,.7) inset,0 12px 44px rgba(245,185,58,.85)}}
-@media(prefers-reduced-motion:reduce){.hero .l,.hero .sub,.cta,.fag{animation:none!important}.fag{display:none}}
+@media(prefers-reduced-motion:reduce){.hero .nome,.hero .nome b,.hero .l,.hero .sub,.cta,.fag{animation:none!important}.fag{display:none}}
 
 /* ===== ACABAMENTO DA EXPERIÊNCIA ===== */
 main{max-width:1160px;gap:40px;padding-top:44px}
